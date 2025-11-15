@@ -4,73 +4,108 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Visant.AI – Terms of Service</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --accent: #0b918a;
-      --text-dark: #2a2a2a;
-      --text-muted: #666;
-      --bg-light: #fafaf8;
-      --card: #ffffff;
+      --primary: #CC785C;
+      --primary-hover: #B86A4F;
+      --text-dark: #1A1A1A;
+      --text-body: #2D2D2D;
+      --text-muted: #6B6B6B;
+      --bg-cream: #F5F3EE;
+      --bg-warm: #EDE8E0;
+      --bg-white: #FFFFFF;
+      --border-subtle: #E5E0D8;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-cream);
+      color: var(--text-body);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
-      padding: 2rem 1rem 1rem;
+      padding: 3rem 1rem 2rem;
       text-align: center;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     header h1 {
       margin: 0;
       font-size: 2rem;
-      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-dark);
     }
 
     header p {
-      margin: 0.5rem 0 0;
+      margin: 0.75rem 0 0;
       color: var(--text-muted);
+      font-size: 0.9375rem;
     }
 
     main {
       max-width: 900px;
       margin: 0 auto 4rem;
-      padding: 0 1.5rem;
+      padding: 3rem 1.5rem;
     }
 
     section {
-      background: var(--card);
-      border-radius: 1rem;
-      padding: 1.75rem;
+      background: var(--bg-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 2rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      box-shadow: var(--shadow-sm);
     }
 
     section h2 {
-      margin-top: 0;
-      color: var(--accent);
+      margin: 0 0 1rem;
+      color: var(--text-dark);
       font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    section p, section li {
+      color: var(--text-body);
+      line-height: 1.6;
     }
 
     ul {
-      padding-left: 1.2rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
     }
 
     footer {
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border-subtle);
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
+      padding: 3rem 1rem;
+      font-size: 0.9375rem;
       color: var(--text-muted);
     }
 
     a {
-      color: var(--accent);
+      color: var(--primary);
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--primary-hover);
     }
   </style>
 </head>
