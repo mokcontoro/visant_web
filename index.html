@@ -359,6 +359,29 @@
       line-height: 1.6;
     }
 
+    .tech-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    .tech-list li {
+      margin-bottom: 0.75rem;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .tech-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .tech-list strong {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
     .use-cases {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -663,6 +686,7 @@
       <nav class="nav-links">
         <a class="nav-link" href="#install">Install</a>
         <a class="nav-link" href="#use-cases">Use Cases</a>
+        <a class="nav-link" href="#technical-specs">Tech Specs</a>
         <a class="nav-link" href="#pricing">Pricing</a>
         <a class="nav-link" href="#faq">FAQ</a>
       </nav>
@@ -740,11 +764,47 @@
       </div>
     </div>
   </section>
-<!-- 
+
+  <section id="technical-specs">
+    <h2>Built on Professional-Grade Technology</h2>
+    <div class="install-steps">
+      <div class="install-step">
+        <h3>Professional Camera Hardware</h3>
+        <ul class="tech-list">
+          <li><strong>4K Ultra HD</strong> resolution with 8MP Sony sensor</li>
+          <li><strong>73° field of view</strong> optimized for coverage</li>
+          <li><strong>PDAF autofocus</strong> for sharp, clear detection</li>
+          <li><strong>Dual noise-canceling mics</strong> for audio alerts</li>
+          <li><strong>Privacy-first</strong> with built-in cover</li>
+        </ul>
+      </div>
+      <div class="install-step">
+        <h3>Dual-AI Detection System</h3>
+        <ul class="tech-list">
+          <li><strong>96%+ detection accuracy</strong> in real-world conditions</li>
+          <li><strong>&lt;1% false alarm rate</strong> with consensus filtering</li>
+          <li><strong>Two independent AI models</strong> validate every event</li>
+          <li><strong>Cloud-based processing</strong> with instant updates</li>
+          <li><strong>Custom prompts</strong> in plain language</li>
+        </ul>
+      </div>
+      <div class="install-step">
+        <h3>Enterprise-Grade Infrastructure</h3>
+        <ul class="tech-list">
+          <li><strong>99.9% uptime guarantee</strong> for mission-critical monitoring</li>
+          <li><strong>PostgreSQL database</strong> for reliable event storage</li>
+          <li><strong>End-to-end encryption</strong> in transit and at rest</li>
+          <li><strong>Scalable cloud hosting</strong> grows with your needs</li>
+          <li><strong>24/7 monitoring</strong> and automated alerts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+<!--
   <section class="testimonials">
     <h2>See What Others Are Saying</h2>
-    <div class="testimonial">“It just works — our team caught safety issues within days. Super simple setup.”</div>
-    <div class="testimonial">“We use Visant.AI across multiple sites — zero hassle, big impact.”</div>
+    <div class="testimonial">"It just works — our team caught safety issues within days. Super simple setup."</div>
+    <div class="testimonial">"We use Visant.AI across multiple sites — zero hassle, big impact."</div>
   </section>
  -->
   <section id="pricing">
