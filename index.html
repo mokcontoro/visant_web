@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visant.AI — Detect What Matters 24/7</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="image/logo_64x64_wh.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #0b918a;
+      --accent-light: #b3e8e5;
+      --text-dark: #2a2a2a;
+      --text-muted: #6b6b6b;
+      --text-light: #ffffff;
+      --bg-light: #fafaf8;
+      --bg-accent: #e7f6f5;
+      --warm: #f2ede8;
+      --coral: #ffbfa8;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      background: var(--bg-light);
+      padding: 0.35rem 1rem;
+      /* border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04); */
+    }
+
+    .site-header {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0.65rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      background: var(--text-light);
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+    }
+
+    .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      flex: 1 1 auto;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+      padding: 0.35rem 0.5rem;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      background: transparent;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .site-header.nav-open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .site-header.nav-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .site-header.nav-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .login-btn {
+      padding: 0.55rem 1.5rem;
+      border-radius: 999px;
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .login-btn:hover {
+      background: var(--accent);
+      color: var(--text-light);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      background: var(--warm);
+    }
+
+    .hero-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      display: block;
+      width: 60%;
+      max-width: 800px;
+      margin: 1rem auto;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 1rem;
+      display: block;
+    }
+
+    .typewriter-text {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      /* padding: 0.6rem 1.2rem; */
+      padding: 0.4rem 0.7rem;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      width: 300px;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .typewriter-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .cta-btn {
+      background-color: var(--accent);
+      color: var(--text-light);
+      border: none;
+      border-radius: 2rem;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      min-height: 3rem;
+      box-sizing: border-box;
+    }
+
+    .cta-btn:hover {
+      background-color: #08968e;
+      transform: scale(1.05);
+    }
+
+    .try-now-btn {
+      background-color: var(--coral);
+    }
+
+    .try-now-btn:hover {
+      background-color: #f08c6f;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      color: var(--accent);
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .story {
+      text-align: center;
+      background: var(--bg-accent);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .story p {
+      max-width: 650px;
+      margin: auto;
+      font-size: 1rem;
+    }
+
+    .install-steps {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .install-step {
+      background: var(--bg-light);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .install-step img {
+      height: 180px;
+      width: auto;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      object-fit: contain;
+    }
+
+    .install-step h3 {
+      margin: 0 0 0.5rem;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .install-step p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #4b4b4b;
+    }
+
+    .use-cases {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .use-cases img {
+      width: 100%;
+      border-radius: 1rem;
+    }
+
+    .use-cases h3 {
+      margin-top: 0.75rem;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+
+    .use-cases p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .price-box {
+      background: var(--bg-light);
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .price-box-head {
+      padding: 1.5rem;
+      color: var(--text-light);
+    }
+
+    .price-box-head h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.2rem;
+    }
+
+    .price-box-head .price {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .price-box-body {
+      background: #ffffff;
+      padding: 1.5rem;
+      color: #333;
+      flex: 1;
+    }
+
+    .price-box-footer {
+      padding: 1.5rem;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+    }
+
+    .price-action {
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-light);
+      background: var(--accent);
+      text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .price-action:hover {
+      transform: translateY(-1px);
+      opacity: 0.9;
+    }
+
+    .plan-six .price-action {
+      background: #2b4095;
+    }
+
+    .plan-one .price-action {
+      background: #1d676a;
+    }
+
+    .plan-enterprise .price-action {
+      background: #6a0572;
+    }
+
+    .price-details {
+      list-style: disc;
+      padding-left: 1.25rem;
+      margin: 0;
+    }
+
+    .price-details li {
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .plan-six .price-box-head {
+      background: #2b4095;
+    }
+
+    .plan-one .price-box-head {
+      background: #1d676a;
+    }
+
+    .plan-enterprise .price-box-head {
+      background: #6a0572;
+    }
+
+    .testimonials {
+      text-align: center;
+    }
+
+    .testimonial {
+      background: var(--bg-accent);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 700px;
+      font-style: italic;
+    }
+
+    .faq {
+      background: var(--bg-accent);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-item h4 {
+      margin-bottom: 0.3rem;
+      color: var(--accent);
+    }
+
+    footer {
+      background: #eaeaea;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: flex;
+      }
+      .site-header {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 36px;
+        gap: 1rem;
+      }
+      .nav-links {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+      }
+      .site-header.nav-open .nav-links {
+        max-height: 400px;
+        opacity: 1;
+        padding-top: 0.5rem;
+      }
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .header-actions .login-btn {
+        flex: 1;
+        text-align: center;
+      }
+      .typewriter-text {
+        top: 1rem;
+        right: 1rem;
+        width: 250px;
+        font-size: 0.95rem;
+      }
+      .hero-image-wrapper {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-content {
+        padding: 0;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      section h2 {
+        font-size: 1.4rem;
+      }
+      .typewriter-text {
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 200px;
+        font-size: 0.85rem;
+        padding: 0.2rem 0.5rem;
+        height: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrapper">
+    <div class="site-header">
+      <a class="brand" href="#">
+        <img src="image/logo_transparent.png" alt="Visant.AI logo" />
+        <span class="brand-name">Visant.AI</span>
+      </a>
+      <nav class="nav-links">
+        <a class="nav-link" href="#install">Install</a>
+        <a class="nav-link" href="#use-cases">Use Cases</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="login-btn" href="https://emma.ok-monitor.com/login">Log in</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Camera that Detects What Matters 24/7</h1>
+      <p>You can start without AI or software knowledge</p>
+      <div class="hero-image-wrapper">
+        <img src="image/hero.png" alt="Visant.AI Hero Image" />
+        <div class="typewriter-text" id="typewriter"></div>
+      </div>
+      <div class="hero-buttons">
+        <button class="cta-btn">Click to Detect What Matters</button>
+        <a class="cta-btn try-now-btn" href="https://emma.ok-monitor.com/ui" target="_blank" rel="noopener">Experience Visant Camera</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="install">
+    <h2>Installation as simple as 1-2-3</h2>
+    <p>The installation process does not need AI/software expertise, complex integration, or model trainings. 
+    </p>
+    <div class="install-steps">
+      <div class="install-step">
+        <img src="image/1_installation.png" alt="Install the Visant camera">
+        <h3>Step 1: Mount</h3>
+        <p>Install the Visant camera anywhere you need visibility.</p>
+      </div>
+      <div class="install-step">
+        <img src="image/2_wifi.png" alt="Connect camera to Wi-Fi">
+        <h3>Step 2: Connect</h3>
+        <p>Power up and connect to Wi-Fi in minutes—no extra hardware.</p>
+      </div>
+      <div class="install-step">
+        <img src="image/3_abnormal.png" alt="Detect abnormal events">
+        <h3>Step 3: Describe</h3>
+        <p>Tell Visant what matters and it starts detecting immediately.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="use-cases">
+    <h2>Detect What Matters to You</h2>
+    <div class="use-cases">
+      <div>
+        <img src="image/Safety.png" alt="Safety and Compliance">
+        <h3>Safety & Compliance</h3>
+        <p>Ensure everyone follows the rules — PPE, clean workspace, and safe behavior.</p>
+      </div>
+      <div>
+        <img src="image/quality.png" alt="Quality and Performance">
+        <h3>Quality & Performance</h3>
+        <p>Spot defects or performance issues instantly, before they cause downtime.</p>
+      </div>
+      <div>
+        <img src="image/security.png" alt="Security and Operations">
+        <h3>Security & Operations</h3>
+        <p>Get alerts for unusual events, after-hours access, or restricted area entry.</p>
+      </div>
+      <div>
+        <img src="image/equipment.png" alt="Equipment Health">
+        <h3>Equipment Health</h3>
+        <p>Monitor your machines for signs of malfunction or downtime risks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>See What Others Are Saying</h2>
+    <div class="testimonial">“It just works — our team caught safety issues within days. Super simple setup.”</div>
+    <div class="testimonial">“We use Visant.AI across multiple sites — zero hassle, big impact.”</div>
+  </section>
+
+  <section id="pricing">
+    <h2>Choose Your Plan</h2>
+    <div class="pricing">
+      <div class="price-box plan-six">
+        <div class="price-box-head">
+          <h3>6 Month Plan</h3>
+          <p class="price">$297 USD</p>
+        </div>
+        <div class="price-box-body">
+          <ul class="price-details">
+            <li>6-month subscription is included ($49.5 per month).</li>
+            <li>$50 camera hardware cost is discounted with this bundle.</li>
+            <li>After 6 months, the monthly subscription will auto-renew.</li>
+          </ul>
+        </div>
+        <div class="price-box-footer">
+          <a class="price-action" href="https://emma.ok-monitor.com/payment?plan=6-month" target="_blank" rel="noopener">Choose 6-Month Plan</a>
+        </div>
+      </div>
+      <div class="price-box plan-one">
+        <div class="price-box-head">
+          <h3>1 Month Plan</h3>
+          <p class="price">$99.5 USD</p>
+        </div>
+        <div class="price-box-body">
+          <ul class="price-details">
+            <li>1-month subscription is included ($49.5 per month).</li>
+            <li>$50 camera hardware cost is included up front.</li>
+            <li>After the first month, the monthly subscription will auto-renew.</li>
+          </ul>
+        </div>
+        <div class="price-box-footer">
+          <a class="price-action" href="https://emma.ok-monitor.com/payment?plan=1-month" target="_blank" rel="noopener">Choose 1-Month Plan</a>
+        </div>
+      </div>
+      <div class="price-box plan-enterprise">
+        <div class="price-box-head">
+          <h3>Enterprise Plan</h3>
+          <p class="price">Contact our team</p>
+        </div>
+        <div class="price-box-body">
+          <ul class="price-details">
+            <li>We know some deployments demand a customized approach.</li>
+            <li>Partner with us for bespoke hardware bundles and subscription terms.</li>
+          </ul>
+        </div>
+        <div class="price-box-footer">
+          <a class="price-action" href="mailto:visant@contoro.com">Talk With Sales</a>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>Questions? We’ve Got Answers.</h2>
+    <div class="faq-item">
+      <h4>Do I need any AI knowledge?</h4>
+      <p>No! Visant.AI is made for everyone — no coding or AI setup required.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Does it work with my existing cameras?</h4>
+      <p>Yes, most common IP cameras are supported out of the box.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What happens after my plan ends?</h4>
+      <p>Your subscription auto-renews, and you can cancel anytime.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Contoro Robotics. All rights reserved.</p>
+    <p>
+      <a href="terms.html">Terms of Service</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="mailto:visant@contoro.com">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    const texts = [
+      "Detect a person without PPE",
+      "Detect a damaged box",
+      "Detect oil leaked"
+    ];
+
+    let currentTextIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById('typewriter');
+
+    function typeWriter() {
+      const currentText = texts[currentTextIndex];
+      
+      if (isDeleting) {
+        typewriterElement.textContent = currentText.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+        
+        if (currentCharIndex === 0) {
+          isDeleting = false;
+          currentTextIndex = (currentTextIndex + 1) % texts.length;
+          currentCharIndex = 0;
+          setTimeout(typeWriter, 500);
+        } else {
+          setTimeout(typeWriter, 50);
+        }
+      } else {
+        typewriterElement.textContent = currentText.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+        
+        if (currentCharIndex === currentText.length) {
+          setTimeout(() => {
+            isDeleting = true;
+            typeWriter();
+          }, 2000);
+        } else {
+          setTimeout(typeWriter, 100);
+        }
+      }
+    }
+
+    function setupNavToggle() {
+      const navToggle = document.querySelector('.nav-toggle');
+      const siteHeader = document.querySelector('.site-header');
+      if (!navToggle || !siteHeader) return;
+
+      navToggle.addEventListener('click', () => {
+        const isOpen = siteHeader.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900 && siteHeader.classList.contains('nav-open')) {
+          siteHeader.classList.remove('nav-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      typeWriter();
+      setupNavToggle();
+    });
+  </script>
+
+</body>
+</html>
