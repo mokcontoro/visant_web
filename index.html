@@ -162,6 +162,26 @@
       box-shadow: var(--shadow-md);
     }
 
+    .signup-btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: 8px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-body);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .signup-btn:hover {
+      background: var(--bg-cream);
+      border-color: var(--primary);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
     .hero {
       text-align: center;
       padding: 4rem 1rem 5rem;
@@ -639,7 +659,8 @@
         width: 100%;
         justify-content: space-between;
       }
-      .header-actions .login-btn {
+      .header-actions .login-btn,
+      .header-actions .signup-btn {
         flex: 1;
         text-align: center;
       }
@@ -679,16 +700,16 @@
 
   <div class="nav-wrapper">
     <div class="site-header">
-      <a class="brand" href="#">
+      <a class="brand" href="index.html">
         <img src="image/logo_transparent.png" alt="Visant.AI logo" />
         <span class="brand-name">Visant.AI</span>
       </a>
       <nav class="nav-links">
-        <a class="nav-link" href="#install">Install</a>
-        <a class="nav-link" href="#use-cases">Use Cases</a>
-        <a class="nav-link" href="#technical-specs">Tech Specs</a>
-        <a class="nav-link" href="#pricing">Pricing</a>
-        <a class="nav-link" href="#faq">FAQ</a>
+        <a class="nav-link" href="install.html">Install</a>
+        <a class="nav-link" href="index.html#use-cases">Use Cases</a>
+        <a class="nav-link" href="index.html#technical-specs">Tech Specs</a>
+        <a class="nav-link" href="index.html#pricing">Pricing</a>
+        <a class="nav-link" href="index.html#faq">FAQ</a>
       </nav>
       <div class="header-actions">
         <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -696,6 +717,7 @@
           <span></span>
           <span></span>
         </button>
+        <a class="signup-btn" href="https://app.visant.ai/signup">Sign Up</a>
         <a class="login-btn" href="https://app.visant.ai/login">Log in</a>
       </div>
     </div>
@@ -708,6 +730,9 @@
       <div class="hero-image-wrapper">
         <img src="image/hero.png" alt="Visant.AI Hero Image" />
         <div class="typewriter-text" id="typewriter"></div>
+      </div>
+      <div class="hero-buttons">
+        <a class="cta-btn" href="#pricing">Choose Your Visant Plan</a>
       </div>
       <!-- <div class="hero-buttons">
         <button class="cta-btn">Click to Detect What Matters</button>

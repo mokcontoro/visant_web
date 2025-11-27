@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visant.AI | Install Guide</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="image/logo_64x64_wh.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #CC785C;
+      --primary-hover: #B86A4F;
+      --text-dark: #1A1A1A;
+      --text-body: #2D2D2D;
+      --text-muted: #6B6B6B;
+      --bg-cream: #F5F3EE;
+      --bg-warm: #EDE8E0;
+      --bg-white: #FFFFFF;
+      --border-subtle: #E5E0D8;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #f7f2ea 0%, #f0ebe4 35%, #ffffff 100%);
+      color: var(--text-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--bg-cream);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0 1rem;
+    }
+
+    .site-header {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+    }
+
+    .brand-name {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex: 1 1 auto;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-body);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: color 0.15s ease;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-white);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .nav-toggle:hover {
+      border-color: var(--primary);
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background: var(--text-body);
+      border-radius: 1px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .site-header.nav-open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .site-header.nav-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .site-header.nav-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .login-btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: 8px;
+      background: var(--primary);
+      border: none;
+      color: white;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .login-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .signup-btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: 8px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-body);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .signup-btn:hover {
+      background: var(--bg-cream);
+      border-color: var(--primary);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero {
+      padding: 4.5rem 1rem 3rem;
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,243,238,0.9));
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-content::before,
+    .hero-content::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(204, 120, 92, 0.08);
+      filter: blur(60px);
+      z-index: 0;
+    }
+
+    .hero-content::before {
+      top: -80px;
+      left: -60px;
+    }
+
+    .hero-content::after {
+      bottom: -100px;
+      right: -40px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 2.75rem 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 650;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      color: var(--text-muted);
+      max-width: 700px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-subtle);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .cta-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 0.95rem 1.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      box-shadow: var(--shadow-md);
+    }
+
+    .cta-btn:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .try-now-btn {
+      background-color: var(--bg-white);
+      color: var(--text-body);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .try-now-btn:hover {
+      background-color: var(--bg-cream);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .metric strong {
+      color: var(--text-dark);
+    }
+
+    section {
+      padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      color: var(--text-dark);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+
+    .section-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      box-shadow: var(--shadow-md);
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-header h2 {
+      text-align: left;
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(204, 120, 92, 0.12);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid rgba(204,120,92,0.22);
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem;
+      align-items: start;
+    }
+
+    .step-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(204, 120, 92, 0.12);
+      border: 1px solid rgba(204,120,92,0.22);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .grid-split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .note-box {
+      background: linear-gradient(180deg, #ffffff 0%, #f8f5f0 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      text-align: left;
+    }
+
+    .note-box h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+      font-size: 1.1rem;
+    }
+
+    .note-box p {
+      margin: 0 0 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .illustration {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-sm);
+      margin-top: 0.5rem;
+    }
+
+    .faq {
+      background: var(--bg-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-item {
+      margin-bottom: 2rem;
+    }
+
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-item h4 {
+      margin: 0 0 0.5rem;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    footer {
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.15s ease;
+    }
+
+    footer a:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: flex;
+      }
+      .site-header {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 36px;
+        gap: 1rem;
+      }
+      .nav-links {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0;
+        border-top: 1px solid var(--border-subtle);
+        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+      }
+      .site-header.nav-open .nav-links {
+        max-height: 400px;
+        opacity: 1;
+        padding-top: 0.5rem;
+      }
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .header-actions .login-btn,
+      .header-actions .signup-btn {
+        flex: 1;
+        text-align: center;
+      }
+      .hero-content {
+        padding: 0;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      section h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrapper">
+    <div class="site-header">
+      <a class="brand" href="index.html">
+        <img src="image/logo_transparent.png" alt="Visant.AI logo" />
+        <span class="brand-name">Visant.AI</span>
+      </a>
+      <nav class="nav-links">
+        <a class="nav-link" href="install.html">Install</a>
+        <a class="nav-link" href="index.html#use-cases">Use Cases</a>
+        <a class="nav-link" href="index.html#technical-specs">Tech Specs</a>
+        <a class="nav-link" href="index.html#pricing">Pricing</a>
+        <a class="nav-link" href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="signup-btn" href="https://app.visant.ai/signup">Sign Up</a>
+        <a class="login-btn" href="https://app.visant.ai/login">Log in</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-inner">
+        <div class="eyebrow"><span class="dot"></span> Guided Install</div>
+        <h1>Install Visant.AI in Minutes</h1>
+        <p>Follow these steps to connect your camera to Wi-Fi and finish AI setup so you can start detecting what matters.</p>
+        <div class="hero-buttons">
+          <a class="cta-btn" href="mailto:visant@contoro.com">Chat with our team</a>
+          <a class="cta-btn try-now-btn" href="index.html">Back to homepage</a>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="dot"></span><strong>WiFi setup:</strong> ~2 minutes</div>
+          <div class="metric"><span class="dot"></span><strong>AI setup:</strong> ~3 minutes</div>
+          <div class="metric"><span class="dot"></span><strong>Tools required:</strong> None</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card" id="wifi-setup">
+    <div class="section-header">
+      <h2>WiFi Setup</h2>
+      <span class="badge">Step 1</span>
+    </div>
+    <div class="grid-split">
+      <div>
+        <div class="steps">
+          <div class="step">
+            <span class="step-badge">1</span>
+            <div>Connect the power to the camera using the provided power adapter. Do not use an arbitrary USB-C power supply.</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">2</span>
+            <div>After 30 seconds, use your phone and connect to the WiFi network named <strong>Visant-wifi-setup-xxxxx</strong> (xxxxx is the device ID).</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">3</span>
+            <div>Open a browser on your phone and go to <strong>10.41.0.1</strong>.</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">4</span>
+            <div>Choose a WiFi and input its password.</div>
+          </div>
+        </div>
+      </div>
+      <div class="note-box" style="text-align: center;">
+        <h3>Power Supply Connection</h3>
+        <img src="image/camera_pic.png" alt="Camera illustration" class="illustration" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card" id="ai-setup">
+    <div class="section-header">
+      <h2>AI Setup</h2>
+      <span class="badge">Step 2</span>
+    </div>
+    <div class="grid-split">
+      <div>
+        <div class="steps">
+          <div class="step">
+            <span class="step-badge">1</span>
+            <div>Log in or sign up at <a href="https://app.visant.ai/login">visant.ai</a>.</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">2</span>
+            <div>In the <strong>My Camera</strong> menu, click <strong>Add Camera</strong>.</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">3</span>
+            <div>Input the Device ID written on the side of the camera (also sent to your order email) and the Activation Code sent to your order email.</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">4</span>
+            <div>Select the camera in <strong>My Camera</strong>, then click <strong>Settings</strong> to expand its menu.</div>
+          </div>
+          <div class="step">
+            <span class="step-badge">5</span>
+            <div>Adjust settings as needed. You will soon see the captured feed from the camera.</div>
+          </div>
+        </div>
+      </div>
+      <div class="note-box" style="text-align: center;">
+        <h3>Find your Device ID</h3>
+        <p>Device ID is printed on the side of the camera and included in your order email.</p>
+        <img src="image/camera_pic.png" alt="Device ID example" class="illustration"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <div class="section-header">
+      <h2>Need a hand?</h2>
+      <span class="badge">Support</span>
+    </div>
+    <div class="grid-split">
+      <div class="note-box">
+        <h3>Talk to us</h3>
+        <p>Email: <a href="mailto:visant@contoro.com">visant@contoro.com</a></p>
+        <p>We can walk you through WiFi onboarding or camera activation.</p>
+      </div>
+      <div class="note-box">
+        <h3>Before you start</h3>
+        <p>Keep your Device ID and Activation Code nearby. Ensure WiFi coverage is solid where the camera is mounted.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Ac 2025 Contoro Robotics. All rights reserved.</p>
+    <p>
+      <a href="terms.html">Terms of Service</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="mailto:visant@contoro.com">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    function setupNavToggle() {
+      const navToggle = document.querySelector('.nav-toggle');
+      const siteHeader = document.querySelector('.site-header');
+      if (!navToggle || !siteHeader) return;
+
+      navToggle.addEventListener('click', () => {
+        const isOpen = siteHeader.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900 && siteHeader.classList.contains('nav-open')) {
+          siteHeader.classList.remove('nav-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setupNavToggle();
+    });
+  </script>
+
+</body>
+</html>
