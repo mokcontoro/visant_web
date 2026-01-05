@@ -1,0 +1,340 @@
+/**
+ * Visant.AI Common Styles
+ * Shared CSS for unified design across all pages
+ */
+
+/* ============================================
+   CSS Variables
+   ============================================ */
+:root {
+  /* Colors */
+  --primary: #CC785C;
+  --primary-hover: #B86A4F;
+  --primary-light: #F4EBE8;
+
+  --text-dark: #1A1A1A;
+  --text-body: #2D2D2D;
+  --text-muted: #666666;
+  --text-light: #999999;
+
+  --bg-cream: #F9F8F6;
+  --bg-white: #FFFFFF;
+  --bg-warm: #EDE8E0;
+  --bg-warm-surface: #F2EFE9;
+
+  --border-subtle: #E6E1DC;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-active: 0 16px 48px rgba(204, 120, 92, 0.15);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+/* ============================================
+   Base / Reset
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+h1, h2, h3, h4 {
+  margin: 0;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   Container
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-active);
+  color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--border-subtle);
+  color: var(--text-body);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: white;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.site-header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.brand-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-dark);
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* Mobile Navigation */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--bg-white);
+    padding: 0;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .nav-links.open {
+    max-height: 300px;
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-link {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-actions .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+footer {
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-subtle);
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+footer p {
+  color: var(--text-muted);
+}
+
+.footer-links {
+  margin: 1.5rem 0;
+}
+
+.footer-links a {
+  margin: 0 1rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+/* Alternative footer style for legal pages */
+footer.simple-footer {
+  background: var(--bg-warm);
+  padding: 3rem 1rem;
+  font-size: 0.9375rem;
+}
+
+/* ============================================
+   Simple Header (for legal pages)
+   ============================================ */
+.simple-header {
+  padding: 3rem 1rem 2rem;
+  text-align: center;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.simple-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.simple-header p {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   Section Base
+   ============================================ */
+section {
+  padding: 5rem 0;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}

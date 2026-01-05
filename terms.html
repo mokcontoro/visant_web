@@ -1,38 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Visant.AI – Terms of Service</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/common.css" />
   <style>
-    :root {
-      --primary: #CC785C;
-      --primary-hover: #B86A4F;
-      --text-dark: #1A1A1A;
-      --text-body: #2D2D2D;
-      --text-muted: #6B6B6B;
-      --bg-cream: #F5F3EE;
-      --bg-warm: #EDE8E0;
-      --bg-white: #FFFFFF;
-      --border-subtle: #E5E0D8;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-cream);
-      color: var(--text-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    /* --- Page-specific styles for terms.html --- */
 
     header {
       padding: 3rem 1rem 2rem;
@@ -77,7 +53,8 @@
       font-weight: 600;
     }
 
-    section p, section li {
+    section p,
+    section li {
       color: var(--text-body);
       line-height: 1.6;
     }
@@ -96,34 +73,38 @@
       text-align: center;
       padding: 3rem 1rem;
       font-size: 0.9375rem;
-      color: var(--text-muted);
-    }
-
-    a {
-      color: var(--primary);
-      transition: color 0.15s ease;
-    }
-
-    a:hover {
-      color: var(--primary-hover);
     }
   </style>
 </head>
+
 <body>
   <header>
+    <a href="index.html"
+      style="display: inline-block; margin-bottom: 1rem; color: var(--primary); text-decoration: none; font-weight: 500;">&larr;
+      Back to Visant.AI</a>
     <h1>Terms of Service</h1>
-    <p>Last updated: November 9, 2024</p>
+    <p>Last updated: January 4, 2026</p>
   </header>
 
   <main>
     <section>
       <h2>1. Acceptance of Terms</h2>
-      <p>By accessing or using Visant.AI hardware, software, or services, you agree to be bound by these Terms of Service. If you do not agree, please discontinue use immediately.</p>
+      <p>By accessing or using Visant.AI hardware, software, or services, you agree to be bound by these Terms of
+        Service. If you do not agree, please discontinue use immediately.</p>
     </section>
 
     <section>
       <h2>2. Service Description</h2>
-      <p>Visant.AI offers AI-enabled camera hardware, cloud software, and notifications that help detect events important to your operations. We may modify features or discontinue components with prior notice when possible.</p>
+      <p>Visant.AI provides AI-powered visual monitoring services including:</p>
+      <ul>
+        <li><strong>Hardware:</strong> Visant Camera (pre-configured embedded Linux device), Alarm Tower (LED stack
+          light with audible buzzer), or use your own device via Web Camera (BYOD).</li>
+        <li><strong>Software:</strong> AI License subscription enabling dual-agent AI classification (OpenAI GPT+ Google
+          Gemini), real-time email alerts, and 7-day cloud storage.</li>
+        <li><strong>Dashboard:</strong> Web-based interface for camera management, alert configuration, and capture
+          history.</li>
+      </ul>
+      <p>We may modify features or discontinue components with prior notice when possible.</p>
     </section>
 
     <section>
@@ -131,15 +112,21 @@
       <ul>
         <li>Provide accurate registration information and update it when changes occur.</li>
         <li>You are responsible for safeguarding credentials and all activity under your account.</li>
-        <li>Notify us immediately at <a href="mailto:support@visant.ai">support@visant.ai</a> if you suspect unauthorized use.</li>
+        <li>Notify us immediately at <a href="mailto:visant@contoro.com">visant@contoro.com</a> if you suspect
+          unauthorized use.</li>
       </ul>
     </section>
 
     <section>
       <h2>4. Hardware & Subscription</h2>
       <ul>
+        <li><strong>Hardware Pricing:</strong> Visant Camera ($100), Alarm Tower ($120). Hardware is sold separately
+          from AI licenses.</li>
+        <li><strong>AI License:</strong> $29.50 per device per month. Licenses are purchased as a pool and can be
+          assigned/reassigned between devices.</li>
+        <li><strong>Free Trial:</strong> 7-day free trial available for new users. No credit card required.</li>
         <li>Hardware remains under limited warranty for defects in materials and workmanship for one year.</li>
-        <li>Subscription plans renew automatically until cancelled in writing at least five (5) days before the next billing date.</li>
+        <li>Subscription plans renew automatically until cancelled via the Stripe billing portal.</li>
         <li>Usage is subject to fair-use limits designed to protect platform stability.</li>
       </ul>
     </section>
@@ -147,46 +134,57 @@
     <section>
       <h2>5. Refund Policy</h2>
       <ul>
-        <li><strong>Hardware:</strong> You may return unused, unopened hardware within thirty (30) days of delivery for a full refund, minus shipping costs. Hardware must be in original packaging and condition.</li>
-        <li><strong>Subscription:</strong> Subscription fees are non-refundable once the billing period begins. You may cancel at any time to prevent future charges, but no prorated refunds are issued for partial billing periods.</li>
-        <li><strong>Bundled Plans:</strong> For bundled hardware and subscription plans (e.g., 1-Month or 6-Month plans), refund eligibility follows the hardware policy if returned within 30 days and unused. Once the service is activated, subscription portions are non-refundable.</li>
-        <li><strong>Requesting Refunds:</strong> Contact <a href="mailto:support@visant.ai">support@visant.ai</a> within the eligible refund period with your order number and reason for return.</li>
+        <li><strong>Hardware:</strong> You may return unused, unopened hardware within thirty (30) days of delivery for
+          a full refund, minus shipping costs. Hardware must be in original packaging and condition.</li>
+        <li><strong>Subscription:</strong> Subscription fees are non-refundable once the billing period begins. You may
+          cancel at any time to prevent future charges, but no prorated refunds are issued for partial billing periods.
+        </li>
+        <li><strong>Requesting Refunds:</strong> Contact <a href="mailto:visant@contoro.com">visant@contoro.com</a>
+          within the eligible refund period with your order number and reason for return.</li>
       </ul>
     </section>
 
     <section>
       <h2>6. Acceptable Use</h2>
-      <p>You agree not to misuse the service, including by violating laws, breaching privacy rights, reverse engineering, uploading malicious code, or interfering with other customers' experience.</p>
+      <p>You agree not to misuse the service, including by violating laws, breaching privacy rights, reverse
+        engineering, uploading malicious code, or interfering with other customers' experience.</p>
     </section>
 
     <section>
       <h2>7. Data Ownership & Privacy</h2>
-      <p>You retain ownership of your video data and prompts. We process that data to deliver detections as described in our <a href="privacy.html">Privacy Policy</a>. You grant Visant.AI a limited license to host and analyze content solely to operate the service.</p>
+      <p>You retain ownership of your video data and prompts. We process that data to deliver detections as described in
+        our <a href="privacy.html">Privacy Policy</a>. You grant Visant.AI a limited license to host and analyze content
+        solely to operate the service.</p>
     </section>
 
     <section>
       <h2>8. Disclaimers</h2>
-      <p>Visant.AI is provided "as-is." To the maximum extent permitted by law we disclaim warranties of merchantability, fitness, non-infringement, and uninterrupted or error-free operation.</p>
+      <p>Visant.AI is provided "as-is." To the maximum extent permitted by law we disclaim warranties of
+        merchantability, fitness, non-infringement, and uninterrupted or error-free operation.</p>
     </section>
 
     <section>
       <h2>9. Limitation of Liability</h2>
-      <p>Our total liability for any claim arising from these terms is limited to the amount you paid to Visant.AI during the twelve (12) months preceding the claim. We are not liable for indirect, incidental, or consequential damages.</p>
+      <p>Our total liability for any claim arising from these terms is limited to the amount you paid to Visant.AI
+        during the twelve (12) months preceding the claim. We are not liable for indirect, incidental, or consequential
+        damages.</p>
     </section>
 
     <section>
       <h2>10. Governing Law & Disputes</h2>
-      <p>These terms are governed by the laws of Delaware, USA, without regard to conflict of law rules. Disputes will be resolved in the state or federal courts located in Wilmington, Delaware.</p>
+      <p>These terms are governed by the laws of Delaware, USA, without regard to conflict of law rules. Disputes will
+        be resolved in the state or federal courts located in Wilmington, Delaware.</p>
     </section>
 
     <section>
       <h2>11. Contact</h2>
-      <p>For questions about these terms, contact us at <a href="mailto:legal@visant.ai">legal@visant.ai</a> or Visant.AI Legal, 123 Innovation Way, Wilmington, DE 19801.</p>
+      <p>For questions about these terms, contact us at <a href="mailto:visant@contoro.com">visant@contoro.com</a>.</p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Visant.AI. All rights reserved.
+    &copy; 2026 Contoro Robotics. All rights reserved.
   </footer>
 </body>
+
 </html>

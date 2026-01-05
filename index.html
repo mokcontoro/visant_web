@@ -7,194 +7,9 @@
   <title>Visant.AI — Detect What Matters 24/7</title>
   <link rel="icon" type="image/png" sizes="64x64" href="image/logo_64x64_wh.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/common.css" />
   <style>
-    :root {
-      /* Palette */
-      --primary: #CC785C;
-      --primary-hover: #B86A4F;
-      --primary-light: #F4EBE8;
-
-      --text-dark: #1A1A1A;
-      --text-body: #2D2D2D;
-      --text-muted: #666666;
-      --text-light: #999999;
-
-      --bg-cream: #F9F8F6;
-      --bg-white: #FFFFFF;
-      --bg-warm-surface: #F2EFE9;
-
-      --border-subtle: #E6E1DC;
-
-      /* Glassmorphism */
-      --glass-bg: rgba(255, 255, 255, 0.85);
-      --glass-border: rgba(255, 255, 255, 0.5);
-      --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-
-      /* Shadows */
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
-      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
-      --shadow-active: 0 16px 48px rgba(204, 120, 92, 0.15);
-      /* Tinted shadow */
-
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-cream);
-      color: var(--text-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    /* --- Utilities --- */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-sm);
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-      cursor: pointer;
-      text-decoration: none;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-active);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border-color: var(--border-subtle);
-      color: var(--text-body);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      background: white;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      margin: 0;
-      color: var(--text-dark);
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      margin: 0;
-      color: var(--text-muted);
-    }
-
-    section {
-      padding: 5rem 0;
-    }
-
-    /* --- Navigation --- */
-    .nav-wrapper {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      background: var(--glass-bg);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .site-header {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-
-    .brand img {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-    }
-
-    .brand-name {
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--text-dark);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: var(--text-body);
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-
-    .nav-link:hover {
-      color: var(--primary);
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--text-dark);
-      margin: 5px 0;
-      transition: 0.3s;
-    }
+    /* --- Page-specific styles for index.html --- */
 
     .hero {
       text-align: center;
@@ -368,6 +183,11 @@
     /* --- Compatibility / How it Works --- */
     .section-compatibility {
       background: var(--bg-cream);
+    }
+
+    /* --- Features Section --- */
+    .section-features {
+      background: var(--bg-white);
     }
 
     .compatibility-grid {
@@ -612,10 +432,41 @@
     }
 
     /* --- Pricing --- */
+    .pricing-section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin: 2.5rem 0 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+    }
+
+    .pricing-section-title:first-of-type {
+      margin-top: 0;
+    }
+
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .plan-card.disabled {
+      opacity: 0.7;
+    }
+
+    .plan-card.disabled .btn {
+      background: var(--text-muted);
+      cursor: not-allowed;
+      pointer-events: none;
     }
 
     .plan-card {
@@ -697,33 +548,6 @@
       text-align: center;
     }
 
-    .btn-block {
-      display: flex;
-      width: 100%;
-    }
-
-    /* --- Footer --- */
-    footer {
-      background: var(--bg-white);
-      border-top: 1px solid var(--border-subtle);
-      padding: 4rem 0 2rem;
-      text-align: center;
-    }
-
-    .footer-links {
-      margin: 1.5rem 0;
-    }
-
-    .footer-links a {
-      margin: 0 1rem;
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: var(--primary);
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       .hero h1 {
@@ -770,8 +594,9 @@
         </a>
         <nav class="nav-links">
           <a class="nav-link" href="#how-it-works">How It Works</a>
-          <a class="nav-link" href="#features">Features</a>
-          <a class="nav-link" href="#specs">Specs</a>
+          <a class="nav-link" href="#compatibility">Cameras</a>
+          <a class="nav-link" href="install.html">Install</a>
+          <a class="nav-link" href="#features">Applications</a>
           <a class="nav-link" href="#pricing">Pricing</a>
           <a class="nav-link" href="#faq">FAQ</a>
         </nav>
@@ -868,6 +693,7 @@
             <h3>Visant Camera</h3>
             <p><strong>Perfect for permanent installations.</strong> A pre-configured, plug-and-play Embedded-linux
               machine that connects to Wi-Fi and starts monitoring instantly. No setup hassles.</p>
+            <a href="install.html" class="btn btn-outline" style="margin-top: 1rem;">Install Instruction</a>
           </div>
         </div>
 
@@ -887,7 +713,7 @@
   </section>
 
   <!-- Features Grid -->
-  <section id="features">
+  <section id="features" class="section-features">
     <div class="container">
       <div class="section-header">
         <h2>Detect What Matters</h2>
@@ -965,11 +791,33 @@
     <div class="container">
       <div class="section-header">
         <h2>Simple, Transparent Pricing</h2>
-        <p>Hardware sold separately. AI monitoring subscription per device.</p>
+        <p>Choose your hardware and software plan separately.</p>
       </div>
 
+      <!-- Hardware Section -->
+      <h3 class="pricing-section-title">Hardware</h3>
       <div class="pricing-grid">
-        <!-- Hardware -->
+        <!-- Web Camera (BYOD) -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Web Camera (BYOD)</h3>
+            <div class="plan-price">Free</div>
+            <p>Use Your Own Device</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>Use any smartphone, tablet, or laptop</li>
+              <li>Browser-based - no app installation</li>
+              <li>Perfect for testing before purchase</li>
+              <li>Unlimited devices per account</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Visant Camera -->
         <div class="plan-card">
           <div class="plan-header">
             <h3>Visant Camera</h3>
@@ -978,58 +826,101 @@
           </div>
           <div class="plan-body">
             <ul class="plan-features">
-              <li>Pre-configured Embedded Linux Machine</li>
-              <li>High-quality sensor</li>
+              <li>Pre-configured embedded Linux machine</li>
+              <li>High-quality image sensor</li>
               <li>Plug-and-play Wi-Fi setup</li>
-              <li>Case and mount included</li>
+              <li>Compact case with mount included</li>
             </ul>
           </div>
           <div class="plan-footer">
-            <a href="https://app.visant.ai/checkout?type=hardware" class="btn btn-outline btn-block">Buy Hardware</a>
+            <a href="install.html" class="btn btn-outline btn-block">Install Instruction</a>
+            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block" style="margin-top: 0.5rem;">Order at Billing Page after
+              Login</a>
           </div>
         </div>
 
-        <!-- Subscription -->
-        <div class="plan-card highlight">
-          <span class="plan-badge">Most Popular</span>
+        <!-- Alarm Tower -->
+        <div class="plan-card">
           <div class="plan-header">
-            <h3>AI License</h3>
+            <h3>Alarm Tower</h3>
+            <div class="plan-price">$120<span class="plan-period"> one-time</span></div>
+            <p>On-Site Alert System</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>LED stack light (Red/Yellow/Green)</li>
+              <li>Audible buzzer alarm</li>
+              <li>USB connection to Visant Camera</li>
+              <li>Industrial-grade durability</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block">Order at Billing Page after
+              Login</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Software Section -->
+      <h3 class="pricing-section-title">AI License</h3>
+      <div class="pricing-grid">
+        <!-- Free Trial -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Free Trial</h3>
+            <div class="plan-price">Free<span class="plan-period"> for 7 days</span></div>
+            <p>Try Before You Buy</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>Full AI monitoring capabilities</li>
+              <li>Email notifications</li>
+              <li>7-day cloud storage</li>
+              <li>No credit card required</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block">Start Trial</a>
+          </div>
+        </div>
+
+        <!-- AI License - Basic -->
+        <div class="plan-card highlight">
+          <div class="plan-header">
+            <h3>AI License - Basic</h3>
             <div class="plan-price">$29.50<span class="plan-period"> / month</span></div>
             <p>Per device monitoring</p>
           </div>
           <div class="plan-body">
             <ul class="plan-features">
               <li>Unlimited AI event detections</li>
-              <li>Real-time Email alerts</li>
+              <li>Real-time email alerts</li>
               <li>7-day cloud storage</li>
-              <li>Dual-agent verification</li>
-              <li>Works with Visant Camera or BYOD</li>
+              <li>Dual-agent AI verification</li>
             </ul>
           </div>
           <div class="plan-footer">
-            <a href="https://app.visant.ai/checkout?type=license" class="btn btn-primary btn-block">Start
-              Subscription</a>
+            <a href="https://app.visant.ai/login" class="btn btn-primary btn-block">Subscribe at Billing Page </a>
           </div>
         </div>
 
-        <!-- Enterprise -->
-        <div class="plan-card">
+        <!-- AI License - Pro -->
+        <div class="plan-card disabled">
           <div class="plan-header">
-            <h3>Enterprise</h3>
-            <div class="plan-price">Custom</div>
-            <p>Volume deployments</p>
+            <h3>AI License - Pro</h3>
+            <div class="plan-price">Coming Soon</div>
+            <p>Advanced Features</p>
           </div>
           <div class="plan-body">
             <ul class="plan-features">
-              <li>Volume discounts</li>
-              <li>Custom retention policies</li>
-              <li>SLA & Dedicated support</li>
-              <li>API Access</li>
-              <li>On-premise options</li>
+              <li>Everything in Basic, plus:</li>
+              <li>Extended cloud storage (30+ days)</li>
+              <li>Priority AI processing</li>
+              <li>API access</li>
             </ul>
           </div>
           <div class="plan-footer">
-            <a href="mailto:sales@visant.ai" class="btn btn-outline btn-block">Contact Sales</a>
+            <span class="btn btn-outline btn-block">Coming Soon</span>
           </div>
         </div>
       </div>
@@ -1057,8 +948,21 @@
 
       <div style="margin-bottom: 2rem;">
         <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">How accurate is the AI?</h4>
-        <p>We use a dual-agent consensus system (GPT-4o + Gemini) to verify every detection, resulting in less than 1%
+        <p>We use a dual-agent consensus system (OpenAI GPT + Google Gemini) to verify every detection, resulting in
+          less than 1%
           false alarms.</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Does the hardware include AI monitoring?</h4>
+        <p>No. Hardware and AI licenses are sold separately. After adding your camera, purchase an AI license on the
+          Billing page to enable monitoring.</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Can I move a license between cameras?</h4>
+        <p>Yes! You can remove a license from one camera and assign it to another anytime on the Billing page. Licenses
+          are flexible and not locked to a specific device.</p>
       </div>
     </div>
   </section>
