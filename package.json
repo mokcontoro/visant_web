@@ -1,12 +1,17 @@
 {
   "name": "visant-web",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Visant.AI marketing website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "keywords": ["visant", "ai", "camera", "detection"],
+  "keywords": [
+    "visant",
+    "ai",
+    "camera",
+    "detection"
+  ],
   "author": "Contoro Robotics",
   "license": "UNLICENSED",
   "dependencies": {

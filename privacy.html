@@ -1,37 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Visant.AI – Privacy Policy</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/common.css" />
   <style>
-    :root {
-      --primary: #CC785C;
-      --primary-hover: #B86A4F;
-      --text-dark: #1A1A1A;
-      --text-body: #2D2D2D;
-      --text-muted: #6B6B6B;
-      --bg-cream: #F5F3EE;
-      --bg-warm: #EDE8E0;
-      --bg-white: #FFFFFF;
-      --border-subtle: #E5E0D8;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
+    /* --- Page-specific styles for privacy.html --- */
 
     body {
-      margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-cream);
-      color: var(--text-body);
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
@@ -77,7 +57,8 @@
       font-weight: 600;
     }
 
-    section p, section li {
+    section p,
+    section li {
       color: var(--text-body);
       line-height: 1.7;
     }
@@ -96,93 +77,113 @@
       text-align: center;
       padding: 3rem 1rem;
       font-size: 0.9375rem;
-      color: var(--text-muted);
-    }
-
-    a {
-      color: var(--primary);
-      transition: color 0.15s ease;
-    }
-
-    a:hover {
-      color: var(--primary-hover);
     }
   </style>
 </head>
+
 <body>
   <header>
+    <a href="index.html"
+      style="display: inline-block; margin-bottom: 1rem; color: var(--primary); text-decoration: none; font-weight: 500;">&larr;
+      Back to Visant.AI</a>
     <h1>Privacy Policy</h1>
-    <p>Last updated: November 9, 2024</p>
+    <p>Last updated: January 4, 2026</p>
   </header>
 
   <main>
     <section>
       <h2>1. Overview</h2>
-      <p>This Privacy Policy explains how Visant.AI collects, uses, and protects personal data when you use our hardware, software, or services.</p>
+      <p>This Privacy Policy explains how Visant.AI collects, uses, and protects personal data when you use our
+        hardware, software, or services.</p>
     </section>
 
     <section>
       <h2>2. Data We Collect</h2>
       <ul>
-        <li><strong>Account data:</strong> name, email address, company, and billing information.</li>
-        <li><strong>Device data:</strong> camera identifiers, firmware versions, and diagnostic logs.</li>
-        <li><strong>Video & detection data:</strong> video frames, prompts, and analytic metadata submitted through the platform.</li>
+        <li><strong>Account data:</strong> Email address, organization name, and billing information via Stripe.</li>
+        <li><strong>Device data:</strong> Device IDs, device type (hardware/web camera), online status, and
+          configuration settings.</li>
+        <li><strong>Capture data:</strong> Images captured by your cameras, alert conditions you define, and AI
+          classification results.</li>
+        <li><strong>Usage data:</strong> Timestamps, capture frequency, and notification delivery status.</li>
       </ul>
     </section>
 
     <section>
       <h2>3. How We Use Data</h2>
       <ul>
-        <li>Provide and maintain the Visant.AI service.</li>
-        <li>Send alerts, reports, and account communications.</li>
-        <li>Improve accuracy and reliability through aggregated, de-identified analytics.</li>
-        <li>Detect, prevent, and address security or technical issues.</li>
+        <li>Process captures through our dual-agent AI system (OpenAI GPT and Google Gemini) to detect alert conditions.</li>
+        <li>Send email notifications via SendGrid when alerts are triggered.</li>
+        <li>Display capture history and AI analysis results in your dashboard.</li>
+        <li>Process payments and manage subscriptions through Stripe.</li>
+        <li>Improve AI accuracy and service reliability through aggregated, de-identified analytics.</li>
+        <li>Send marketing communications, product updates, and promotional offers (you may opt out at any time).</li>
       </ul>
     </section>
 
     <section>
       <h2>4. Sharing & Disclosure</h2>
-      <p>We do not sell personal data. We share information only with trusted subprocessors (cloud hosting, AI processing services, billing, email delivery) bound by confidentiality commitments, or when required by law.</p>
+      <p>We do not sell personal data. We share data only with trusted service providers:</p>
+      <ul>
+        <li><strong>Railway.app:</strong> Cloud hosting and database</li>
+        <li><strong>Supabase:</strong> Authentication services</li>
+        <li><strong>Stripe:</strong> Payment processing</li>
+        <li><strong>SendGrid:</strong> Email delivery</li>
+        <li><strong>OpenAI & Google:</strong> AI image analysis (captures are processed but not stored by these
+          providers)</li>
+      </ul>
+      <p>We may also disclose data when required by law or to protect our rights.</p>
     </section>
 
     <section>
       <h2>5. Data Retention</h2>
-      <p>Video content is retained according to your plan configuration and then deleted or anonymized. Account metadata is stored as long as necessary to provide services and comply with legal obligations.</p>
+      <ul>
+        <li><strong>Captures:</strong> Stored for up to 3 years in cloud storage.</li>
+        <li><strong>Account data:</strong> Retained while your account is active and for a reasonable period afterward for legal compliance.</li>
+        <li><strong>Billing records:</strong> Retained as required by tax and financial regulations.</li>
+        <li><strong>Marketing data:</strong> Retained for up to 3 years or until you opt out of marketing communications.</li>
+      </ul>
     </section>
 
     <section>
       <h2>6. Security</h2>
-      <p>We implement encryption in transit, role-based access, logging, and regular audits to protect data. No system is completely secure; notify us of any suspected vulnerability.</p>
+      <p>We implement encryption in transit, role-based access, logging, and regular audits to protect data. No system
+        is completely secure; notify us of any suspected vulnerability.</p>
     </section>
 
     <section>
       <h2>7. Your Rights</h2>
-      <p>Depending on your jurisdiction, you may request access, correction, deletion, or portability of your personal data by emailing <a href="mailto:visant@contoro.com">visant@contoro.com</a>.</p>
+      <p>Depending on your jurisdiction, you may request access, correction, deletion, or portability of your personal
+        data by emailing <a href="mailto:visant@contoro.com">visant@contoro.com</a>.</p>
     </section>
 
     <section>
       <h2>8. International Transfers</h2>
-      <p>Visant.AI may process data in the United States and other countries. We rely on approved transfer mechanisms such as Standard Contractual Clauses when data moves across borders.</p>
+      <p>Visant.AI may process data in the United States and other countries. We rely on approved transfer mechanisms
+        such as Standard Contractual Clauses when data moves across borders.</p>
     </section>
 
     <section>
       <h2>9. Children</h2>
-      <p>Our services are not directed to children under 16. If we learn that we have collected data from a minor, we will delete it promptly.</p>
+      <p>Our services are not directed to children under 16. If we learn that we have collected data from a minor, we
+        will delete it promptly.</p>
     </section>
 
     <section>
       <h2>10. Changes</h2>
-      <p>We may update this policy to reflect operational or legal requirements. We will post the new date above and, when changes are material, provide additional notice.</p>
+      <p>We may update this policy to reflect operational or legal requirements. We will post the new date above and,
+        when changes are material, provide additional notice.</p>
     </section>
 
     <section>
       <h2>11. Contact</h2>
-      <p>Questions about privacy can be sent to <a href="mailto:visant@contoro.com">visant@contoro.com</a> or Visant.AI, 2601 McHale Ct STE 160, Austin, TX 78758.</p>
+      <p>Questions about privacy can be sent to <a href="mailto:visant@contoro.com">visant@contoro.com</a>.</p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Visant.AI. All rights reserved.
+    &copy; 2026 Contoro Robotics. All rights reserved.
   </footer>
 </body>
+
 </html>

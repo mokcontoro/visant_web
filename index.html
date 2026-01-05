@@ -1,230 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Visant.AI — Detect What Matters 24/7</title>
   <link rel="icon" type="image/png" sizes="64x64" href="image/logo_64x64_wh.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/common.css" />
   <style>
-    :root {
-      --primary: #CC785C;
-      --primary-hover: #B86A4F;
-      --text-dark: #1A1A1A;
-      --text-body: #2D2D2D;
-      --text-muted: #6B6B6B;
-      --bg-cream: #F5F3EE;
-      --bg-warm: #EDE8E0;
-      --bg-white: #FFFFFF;
-      --border-subtle: #E5E0D8;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-cream);
-      color: var(--text-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .nav-wrapper {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: var(--bg-cream);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 0 1rem;
-    }
-
-    .site-header {
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 1rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-
-    .brand img {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-    }
-
-    .brand-name {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--text-dark);
-      letter-spacing: -0.01em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      flex: 1 1 auto;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: var(--text-body);
-      font-weight: 500;
-      font-size: 0.9375rem;
-      transition: color 0.15s ease;
-      padding: 0.5rem 0;
-    }
-
-    .nav-link:hover {
-      color: var(--primary);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .nav-toggle {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      border: 1px solid var(--border-subtle);
-      background: var(--bg-white);
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .nav-toggle:hover {
-      border-color: var(--primary);
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 16px;
-      height: 2px;
-      background: var(--text-body);
-      border-radius: 1px;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .site-header.nav-open .nav-toggle span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .site-header.nav-open .nav-toggle span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .site-header.nav-open .nav-toggle span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    .login-btn {
-      padding: 0.625rem 1.25rem;
-      border-radius: 8px;
-      background: var(--primary);
-      border: none;
-      color: white;
-      font-weight: 500;
-      font-size: 0.9375rem;
-      text-decoration: none;
-      transition: all 0.15s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .login-btn:hover {
-      background: var(--primary-hover);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .signup-btn {
-      padding: 0.625rem 1.25rem;
-      border-radius: 8px;
-      background: var(--bg-white);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-body);
-      font-weight: 500;
-      font-size: 0.9375rem;
-      text-decoration: none;
-      transition: all 0.15s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .signup-btn:hover {
-      background: var(--bg-cream);
-      border-color: var(--primary);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
+    /* --- Page-specific styles for index.html --- */
 
     .hero {
       text-align: center;
-      padding: 4rem 1rem 5rem;
-      background: var(--bg-white);
+      padding: 4rem 1rem 2rem;
+      /* Fixed top padding, reducing varying gap */
+      background: radial-gradient(circle at 50% 50%, var(--bg-white) 0%, var(--bg-cream) 100%);
+      min-height: calc(100vh - 72px);
+      /* Maintain full height look */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      /* Start content from top, not center */
     }
 
-    .hero-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 1rem;
+    .hero h1 {
+      font-size: 2.25rem;
+      /* Reduced to fit one line */
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #1A1A1A 0%, #4A4A4A 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      max-width: 650px;
+      /* Slightly wider to ensure nice 2 lines */
+      margin: 0 auto 2rem;
     }
 
     .hero-image-wrapper {
       position: relative;
       display: block;
-      width: 60%;
-      max-width: 800px;
-      margin: 1rem auto;
+      width: 100%;
+      max-width: 650px;
+      /* Reduced from 800px */
+      margin: 0 auto 2rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      background: white;
     }
 
     .hero img {
       width: 100%;
-      border-radius: 1rem;
       display: block;
     }
 
     .typewriter-text {
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: var(--bg-cream);
-      padding: 0.5rem 0.875rem;
-      border-radius: 8px;
+      top: 2rem;
+      right: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--primary);
       box-shadow: var(--shadow-md);
       border: 1px solid var(--border-subtle);
-      width: 300px;
-      height: 2.5rem;
+      min-width: 280px;
+      height: 3rem;
       display: flex;
       align-items: center;
-      overflow: hidden;
+      white-space: nowrap;
     }
 
     .typewriter-text::after {
@@ -235,696 +91,912 @@
     }
 
     @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
+
+      0%,
+      50% {
+        opacity: 1;
+      }
+
+      51%,
+      100% {
+        opacity: 0;
+      }
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--text-dark);
-      letter-spacing: -0.02em;
-      line-height: 1.2;
+    /* --- How It Works (3 Steps) --- */
+    .how-it-works {
+      background: var(--bg-white);
+      padding: 6rem 0;
     }
 
-    .hero p {
-      font-size: 1.125rem;
-      margin-bottom: 2rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 3rem;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      margin: 1.5rem 0;
+    .step-card {
+      text-align: center;
+      position: relative;
     }
 
-    .cta-btn {
-      background-color: var(--primary);
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
       color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 0.875rem 1.75rem;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      text-decoration: none;
-      display: inline-flex;
+      border-radius: 50%;
+      display: flex;
       align-items: center;
       justify-content: center;
-      line-height: 1;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
       box-shadow: var(--shadow-md);
     }
 
-    .cta-btn.install-detail {
-      margin-top: 1.5rem;
-      background-color: #5B8C7D;
+    .step-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
 
-    .cta-btn.install-detail:hover {
-      background-color: #4A7566;
+    .step-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
     }
 
-    .cta-btn:hover {
-      background-color: var(--primary-hover);
-      transform: translateY(-2px);
+    .step-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .step-connector {
+      display: none;
+    }
+
+    @media (min-width: 769px) {
+      .step-card:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 30px;
+        right: -1.5rem;
+        width: 3rem;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary), var(--border-subtle));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .step-card:not(:last-child)::after {
+        display: none;
+      }
+    }
+
+    /* --- Compatibility / How it Works --- */
+    .section-compatibility {
+      background: var(--bg-cream);
+    }
+
+    /* --- Features Section --- */
+    .section-features {
+      background: var(--bg-white);
+    }
+
+    .compatibility-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .comp-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .comp-card:hover {
+      transform: translateY(-8px);
       box-shadow: var(--shadow-lg);
     }
 
-    .try-now-btn {
-      background-color: var(--bg-white);
-      color: var(--text-body);
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-sm);
+    .comp-image-container {
+      margin-bottom: 1.5rem;
     }
 
-    .try-now-btn:hover {
-      background-color: var(--bg-cream);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    section {
-      padding: 4rem 1rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    section h2 {
-      text-align: center;
-      color: var(--text-dark);
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 3rem;
-      line-height: 1.2;
-    }
-
-    .story {
-      text-align: center;
-      background: var(--bg-warm);
-      border-radius: 12px;
-      padding: 3rem 2rem;
-    }
-
-    .story p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.0625rem;
-      line-height: 1.7;
-      color: var(--text-body);
-    }
-
-    .install-steps {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .install-step {
-      background: var(--bg-white);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 2rem 1.5rem;
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-      transition: all 0.15s ease;
-    }
-
-    .install-step:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-
-    .install-step img {
-      height: 180px;
-      width: auto;
+    .comp-image-container img {
       max-width: 100%;
+      height: auto;
+      max-height: 230px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .comp-card:hover .comp-image-container img {
+      transform: scale(1.05);
+    }
+
+    .comp-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+
+    .comp-content p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.25rem;
       margin-bottom: 1rem;
+    }
+
+    /* --- How It Works Process --- */
+    .steps-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .steps-grid {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+
+    .process-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 320px;
+    }
+
+    .step-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .step-img {
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    .step-img img {
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
     }
 
-    .install-step h3 {
-      margin: 0 0 0.5rem;
+    .process-step h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
       color: var(--text-dark);
-      font-size: 1.125rem;
-      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
     }
 
-    .install-step p {
-      margin: 0;
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .tech-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-    }
-
-    .tech-list li {
-      margin-bottom: 0.75rem;
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .tech-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .tech-list strong {
-      color: var(--text-dark);
-      font-weight: 600;
-    }
-
-    .use-cases {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-    }
-
-    .use-cases img {
-      width: 100%;
-      border-radius: 1rem;
-    }
-
-    .use-cases h3 {
-      margin-top: 0.75rem;
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--text-dark);
-    }
-
-    .use-cases p {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      text-align: left;
-    }
-
-    .price-box {
-      background: var(--bg-white);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
+    .step-number-inline {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
       box-shadow: var(--shadow-sm);
-      overflow: hidden;
+    }
+
+    .step-divider {
+      display: none;
+      width: 60px;
+      height: 2px;
+      background: var(--border-subtle);
+      margin-top: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .step-divider {
+        display: block;
+      }
+    }
+
+    /* --- Features Grid --- */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      /* Reduced from 280px to fit 4 in row */
+      gap: 1.5rem;
+      /* Slightly reduced gap for better fit */
+    }
+
+    .feature-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-      min-height: 100%;
-      transition: all 0.15s ease;
     }
 
-    .price-box:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
+    .feature-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px);
     }
 
-    .price-box-head {
-      padding: 2rem 1.5rem;
-      color: white;
-      background: var(--primary);
-    }
-
-    .price-box-head h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    .price-box-head .price {
-      margin: 0;
-      font-size: 1.125rem;
-      font-weight: 500;
-      opacity: 0.95;
-    }
-
-    .price-box-body {
-      background: var(--bg-white);
-      padding: 1.5rem;
-      color: var(--text-body);
-      flex: 1;
-    }
-
-    .price-box-footer {
-      padding: 1.5rem;
-      background: var(--bg-white);
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
-    }
-
-    .price-action {
-      width: 100%;
-      display: inline-flex;
-      justify-content: center;
+    .feature-img-wrapper {
+      background: var(--bg-cream);
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.5rem;
+      /* overflow: hidden; */
+      /* aspect-ratio: 4/3; */
+      display: flex;
       align-items: center;
-      padding: 0.75rem 1.25rem;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9375rem;
-      font-weight: 500;
+      justify-content: center;
+    }
+
+    .feature-img-wrapper img {
+      width: 100%;
+      height: auto;
+      /* object-fit: cover; */
+      transition: transform 0.5s ease;
+      border-radius: var(--radius-sm);
+    }
+
+    .feature-card:hover .feature-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* --- Technical Stats --- */
+    .specs-section {
+      background: var(--text-dark);
       color: white;
-      background: var(--primary);
-      text-decoration: none;
-      transition: all 0.15s ease;
-      box-sizing: border-box;
-    }
-
-    .price-action:hover {
-      background: var(--primary-hover);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .price-details {
-      list-style: disc;
-      padding-left: 1.25rem;
-      margin: 0;
-    }
-
-    .price-details li {
-      margin-bottom: 0.75rem;
-      font-size: 0.9375rem;
-      line-height: 1.6;
-      color: var(--text-muted);
-    }
-
-    /* Plan-specific colors */
-    .plan-six .price-box-head {
-      background: #5B8C7D;
-    }
-
-    .plan-six .price-action {
-      background: #5B8C7D;
-    }
-
-    .plan-six .price-action:hover {
-      background: #4A7566;
-    }
-
-    .plan-one .price-box-head {
-      background: var(--primary);
-    }
-
-    .plan-one .price-action {
-      background: var(--primary);
-    }
-
-    .plan-one .price-action:hover {
-      background: var(--primary-hover);
-    }
-
-    .plan-enterprise .price-box-head {
-      background: #8B5A6B;
-    }
-
-    .plan-enterprise .price-action {
-      background: #8B5A6B;
-    }
-
-    .plan-enterprise .price-action:hover {
-      background: #73495A;
-    }
-
-    .testimonials {
+      padding: 6rem 0;
       text-align: center;
     }
 
-    .testimonial {
-      background: var(--bg-warm);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 1.5rem auto;
-      max-width: 700px;
-      font-style: italic;
-      font-size: 1.0625rem;
-      line-height: 1.7;
-      color: var(--text-body);
+    .specs-section h2 {
+      color: white;
+      margin-bottom: 3rem;
     }
 
-    .faq {
-      background: var(--bg-white);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 2.5rem 2rem;
-      box-shadow: var(--shadow-sm);
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .faq-item {
-      margin-bottom: 2rem;
+    .stat-item h3 {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
     }
 
-    .faq-item:last-child {
-      margin-bottom: 0;
+    .stat-item p {
+      color: #aaa;
+      font-size: 1.1rem;
     }
 
-    .faq-item h4 {
-      margin: 0 0 0.5rem;
-      font-size: 1.0625rem;
+    /* --- Pricing --- */
+    .pricing-section-title {
+      font-size: 1.5rem;
       font-weight: 600;
       color: var(--text-dark);
+      margin: 2.5rem 0 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
     }
 
-    .faq-item p {
-      margin: 0;
-      color: var(--text-muted);
-      line-height: 1.6;
+    .pricing-section-title:first-of-type {
+      margin-top: 0;
     }
 
-    footer {
-      background: var(--bg-warm);
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
-      padding: 3rem 1rem;
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-    }
-
-    footer p {
-      margin: 0.5rem 0;
-    }
-
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-      margin: 0 0.5rem;
-      transition: color 0.15s ease;
-    }
-
-    footer a:hover {
-      color: var(--primary-hover);
-      text-decoration: underline;
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     @media (max-width: 900px) {
-      .nav-toggle {
-        display: flex;
-      }
-      .site-header {
-        flex-direction: column;
-        align-items: stretch;
-        border-radius: 36px;
-        gap: 1rem;
-      }
-      .nav-links {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        padding: 0;
-        border-top: 1px solid var(--border-subtle);
-        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-      }
-      .site-header.nav-open .nav-links {
-        max-height: 400px;
-        opacity: 1;
-        padding-top: 0.5rem;
-      }
-      .header-actions {
-        width: 100%;
-        justify-content: space-between;
-      }
-      .header-actions .login-btn,
-      .header-actions .signup-btn {
-        flex: 1;
-        text-align: center;
-      }
-      .typewriter-text {
-        top: 1rem;
-        right: 1rem;
-        width: 250px;
-        font-size: 0.95rem;
-      }
-      .hero-image-wrapper {
-        width: 100%;
+      .pricing-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 600px) {
-      .hero-content {
-        padding: 0;
-      }
+    .plan-card.disabled {
+      opacity: 0.7;
+    }
+
+    .plan-card.disabled .btn {
+      background: var(--text-muted);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .plan-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .plan-card.highlight {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--primary);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .plan-header {
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-warm-surface);
+    }
+
+    .plan-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0.5rem 0;
+    }
+
+    .plan-period {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .plan-body {
+      padding: 2.5rem 2rem;
+      flex: 1;
+    }
+
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .plan-features li {
+      margin-bottom: 1rem;
+      padding-left: 1.75rem;
+      position: relative;
+      color: var(--text-body);
+    }
+
+    .plan-features li::before {
+      content: "✓";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .plan-footer {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
       .hero h1 {
-        font-size: 1.7rem;
+        font-size: 2.5rem;
       }
-      section h2 {
-        font-size: 1.4rem;
+
+      .compatibility-grid {
+        grid-template-columns: 1fr;
       }
-      .typewriter-text {
-        top: 0.75rem;
-        right: 0.75rem;
-        width: 200px;
-        font-size: 0.85rem;
-        padding: 0.2rem 0.5rem;
-        height: 2.2rem;
+
+      .nav-links {
+        display: none;
+      }
+
+      /* Simple mobile menu handling would go here, keep it simple for now */
+      .nav-toggle {
+        display: block;
+      }
+
+      .site-header.nav-open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-subtle);
       }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- Navigation -->
   <div class="nav-wrapper">
-    <div class="site-header">
-      <a class="brand" href="index.html">
-        <img src="image/logo_transparent.png" alt="Visant.AI logo" />
-        <span class="brand-name">Visant.AI</span>
-      </a>
-      <nav class="nav-links">
-        <a class="nav-link" href="install.html">Install</a>
-        <a class="nav-link" href="index.html#use-cases">Use Cases</a>
-        <a class="nav-link" href="index.html#technical-specs">Tech Specs</a>
-        <a class="nav-link" href="index.html#pricing">Pricing</a>
-        <a class="nav-link" href="index.html#faq">FAQ</a>
-      </nav>
-      <div class="header-actions">
-        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <a class="signup-btn" href="https://app.visant.ai/signup">Sign Up</a>
-        <a class="login-btn" href="https://app.visant.ai/login">Log in</a>
+    <div class="container">
+      <div class="site-header">
+        <a class="brand" href="index.html">
+          <img src="image/logo_transparent.png" alt="Visant.AI">
+          <span class="brand-name">Visant.AI</span>
+        </a>
+        <nav class="nav-links">
+          <a class="nav-link" href="#how-it-works">How It Works</a>
+          <a class="nav-link" href="#compatibility">Cameras</a>
+          <a class="nav-link" href="install.html">Install</a>
+          <a class="nav-link" href="#features">Applications</a>
+          <a class="nav-link" href="#pricing">Pricing</a>
+          <a class="nav-link" href="#faq">FAQ</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <a class="btn btn-outline" href="https://app.visant.ai/login">Log in</a>
+          <a class="btn btn-primary" href="https://app.visant.ai/signup">Get Started</a>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Hero Section (Preserved Functionality) -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Camera that Detects What Matters 24/7</h1>
-      <p>You can start without AI or software knowledge</p>
+    <div class="container">
+      <h1>Intelligent Visual Monitoring for Everyone</h1>
+      <p>Turn your camera into an AI-powered alert system. Detect safety hazards, defects, and security breaches 24/7
+        without technical expertise.</p>
+
       <div class="hero-image-wrapper">
-        <img src="image/hero.png" alt="Visant.AI Hero Image" />
+        <img src="image/hero.png" alt="Visant.AI Dashboard Interface" />
         <div class="typewriter-text" id="typewriter"></div>
       </div>
-      <div class="hero-buttons">
-        <a class="cta-btn" href="#pricing">Choose Your Visant Plan</a>
-      </div>
-      <!-- <div class="hero-buttons">
-        <button class="cta-btn">Click to Detect What Matters</button>
-        <a class="cta-btn try-now-btn" href="https://emma.ok-monitor.com/ui" target="_blank" rel="noopener">Experience Visant Camera</a>
-      </div> -->
-    </div>
-  </section>
 
-  <section class="story" id="install">
-    <h2>Installation as simple as 1-2-3</h2>
-    <p>The installation process does not need AI/software expertise, complex integration, or model trainings. 
-    </p>
-    <a class="cta-btn install-detail" href="install.html">Detailed Installation Instruction</a>
-    <div class="install-steps">
-      <div class="install-step">
-        <img src="image/1_installation.png" alt="Install the Visant camera">
-        <h3>Step 1: Mount</h3>
-        <p>Install the Visant camera anywhere you need visibility.</p>
-      </div>
-      <div class="install-step">
-        <img src="image/2_wifi.png" alt="Connect camera to Wi-Fi">
-        <h3>Step 2: Connect</h3>
-        <p>Power up and connect to Wi-Fi in minutes—no extra hardware.</p>
-      </div>
-      <div class="install-step">
-        <img src="image/3_abnormal.png" alt="Detect abnormal events">
-        <h3>Step 3: Describe</h3>
-        <p>Tell Visant what matters and it starts detecting immediately.</p>
+      <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center;">
+        <a class="btn btn-primary" href="#pricing" style="padding: 1rem 2rem; font-size: 1.1rem;">Start for Free with
+          Your Camera</a>
+        <a class="btn btn-outline" href="https://test.visant.ai" target="_blank"
+          style="padding: 1rem 2rem; font-size: 1.1rem;">Start with Visant Camera</a>
       </div>
     </div>
   </section>
 
-  <section id="use-cases">
-    <h2>Detect What Matters to You</h2>
-    <div class="use-cases">
-      <div>
-        <img src="image/safety.png" alt="Safety and Compliance">
-        <h3>Safety & Compliance</h3>
-        <p>Ensure everyone follows the rules — PPE, clean workspace, and safe behavior.</p>
+  <!-- How It Works (3 Steps) -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Get started in minutes with just three simple steps. No coding required.</p>
       </div>
-      <div>
-        <img src="image/quality.png" alt="Quality and Performance">
-        <h3>Quality & Performance</h3>
-        <p>Spot defects or performance issues instantly, before they cause downtime.</p>
-      </div>
-      <div>
-        <img src="image/security.png" alt="Security and Operations">
-        <h3>Security & Operations</h3>
-        <p>Get alerts for unusual events, after-hours access, or restricted area entry.</p>
-      </div>
-      <div>
-        <img src="image/equipment.png" alt="Equipment Health">
-        <h3>Equipment Health</h3>
-        <p>Monitor your machines for signs of malfunction or downtime risks.</p>
-      </div>
-    </div>
-  </section>
-  <section id="technical-specs" class="story">
-    <h2>Built for Reliability</h2>
-    <div class="install-steps">
-      <div class="install-step">
-        <img src="image/camera_web.png" alt="Professional camera hardware">
-        <h3>Professional Camera Hardware</h3>
-        <ul class="tech-list">
-          <li><strong>4K Ultra HD</strong> resolution with 8MP Sony sensor</li>
-          <li><strong>73° field of view</strong> optimized for coverage</li>
-          <li><strong>PDAF autofocus</strong> for sharp, clear detection</li>
-          <li><strong>Privacy-first</strong> with built-in cover</li>
-        </ul>
-      </div>
-      <div class="install-step">
-        <img src="image/ai_web.png" alt="Dual-AI detection system">
-        <h3>Dual-AI Detection System</h3>
-        <ul class="tech-list">
-          <li><strong>96%+ detection accuracy</strong> in real-world conditions</li>
-          <li><strong>&lt;1% false alarm rate</strong> with consensus filtering</li>
-          <li><strong>Two independent AI models</strong> validate every event</li>
-          <li><strong>Custom prompts</strong> in plain language</li>
-        </ul>
-      </div>
-      <div class="install-step">
-        <img src="image/security_web.png" alt="Enterprise-grade infrastructure">
-        <h3>Enterprise-Grade Infrastructure</h3>
-        <ul class="tech-list">
-          <li><strong>99.9% uptime guarantee</strong> for mission-critical monitoring</li>
-          <li><strong>State-of-the-art database</strong> for reliable event storage</li>
-          <li><strong>End-to-end encryption</strong> in transit and at rest</li>
-          <li><strong>24/7 monitoring</strong> and automated alerts</li>
-        </ul>
+
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="process-step">
+          <div class="step-img">
+            <img src="image/camera_installation.png" alt="Install Camera">
+          </div>
+          <h3><span class="step-number-inline">1</span> Install Camera</h3>
+          <p>Use our plug-and-play Visant Camera, or turn any device with a browser into a monitoring camera instantly.
+            Connect to Wi-Fi and you're ready.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step">
+          <div class="step-img">
+            <img src="image/Alert_Condition.png" alt="Write Alert Script">
+          </div>
+          <h3><span class="step-number-inline">2</span> Write Alert Script</h3>
+          <p>Describe what you want to detect in plain English. "Alert if someone enters without a hard hat" or "Alert
+            if the door is left open." That's it.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step">
+          <div class="step-img">
+            <img src="image/notification.png" alt="Get Notification">
+          </div>
+          <h3><span class="step-number-inline">3</span> Get Notification</h3>
+          <p>Receive instant email alerts when the AI detects your conditions. Or connect an alarm tower for on-site
+            visual and audio notifications.</p>
+        </div>
       </div>
     </div>
   </section>
-<!--
-  <section class="testimonials">
-    <h2>See What Others Are Saying</h2>
-    <div class="testimonial">"It just works — our team caught safety issues within days. Super simple setup."</div>
-    <div class="testimonial">"We use Visant.AI across multiple sites — zero hassle, big impact."</div>
+
+  <!-- Universal Compatibility (Hardware vs Web) -->
+  <section id="compatibility" class="section-compatibility">
+    <div class="container">
+      <div class="section-header">
+        <h2>Universal Compatibility</h2>
+        <p>Whether you need a dedicated hardware solution or want to use your existing devices, Visant adapts to your
+          needs.</p>
+      </div>
+
+      <div class="compatibility-grid">
+        <!-- Hardware Path -->
+        <div class="comp-card">
+          <div class="comp-image-container">
+            <img src="image/camera_real_horizontal.png" alt="Visant Camera">
+          </div>
+          <div class="comp-content">
+            <h3>Visant Camera</h3>
+            <p><strong>Perfect for permanent installations.</strong> A pre-configured, plug-and-play Embedded-linux
+              machine that connects to Wi-Fi and starts monitoring instantly. No setup hassles.</p>
+            <a href="install.html" class="btn btn-outline" style="margin-top: 1rem;">Install Instruction</a>
+          </div>
+        </div>
+
+        <!-- BYOD Path -->
+        <div class="comp-card">
+          <div class="comp-image-container">
+            <img src="image/web_camera_final.png" alt="Web Camera (BYOD)">
+          </div>
+          <div class="comp-content">
+            <h3>Web Camera (BYOD)</h3>
+            <p><strong>Perfect for instant testing.</strong> Use your laptop, old phone, or any device with a browser.
+              No hardware purchase required—just sign up and point your camera.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
- -->
+
+  <!-- Features Grid -->
+  <section id="features" class="section-features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Detect What Matters</h2>
+        <p>Our dual-agent AI system learns from your plain English descriptions—no model training required.</p>
+      </div>
+
+      <div class="feature-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-img-wrapper">
+            <img src="image/safety.png" alt="Safety Compliance" />
+          </div>
+          <h3>Safety & Compliance</h3>
+          <p>Ensure PPE usage, clean workspaces, and adherence to safety protocols. Get instant alerts for violations.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-img-wrapper">
+            <img src="image/quality.png" alt="Quality Control" />
+          </div>
+          <h3>Quality & Performance</h3>
+          <p>Spot visual defects on production lines or performance anomalies before they impact your bottom line.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-img-wrapper">
+            <img src="image/security.png" alt="Security" />
+          </div>
+          <h3>Security & Operations</h3>
+          <p>Monitor sensitive areas for unauthorized access or suspicious activity after hours.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-img-wrapper">
+            <img src="image/equipment.png" alt="Equipment Health" />
+          </div>
+          <h3>Equipment Health</h3>
+          <p>Visually monitor machinery for signs of wear, leaks, or stalled operations to prevent downtime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Specs -->
+  <section id="specs" class="specs-section">
+    <div class="container">
+      <h2>Built for Enterprise Reliability</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>99.9%</h3>
+          <p>Uptime Guarantee</p>
+        </div>
+        <div class="stat-item">
+          <h3>&lt;1%</h3>
+          <p>False Alarm Rate</p>
+        </div>
+        <div class="stat-item">
+          <h3>2</h3>
+          <p>AI Agents per Event</p>
+        </div>
+        <div class="stat-item">
+          <h3>4K</h3>
+          <p>Resolution Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
   <section id="pricing">
-    <h2>Choose Your Plan</h2>
-    <div class="pricing">
-      <div class="price-box plan-six">
-        <div class="price-box-head">
-          <h3>6 Month Plan</h3>
-          <p class="price">$297 USD</p>
+    <div class="container">
+      <div class="section-header">
+        <h2>Simple, Transparent Pricing</h2>
+        <p>Choose your hardware and software plan separately.</p>
+      </div>
+
+      <!-- Hardware Section -->
+      <h3 class="pricing-section-title">Hardware</h3>
+      <div class="pricing-grid">
+        <!-- Web Camera (BYOD) -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Web Camera (BYOD)</h3>
+            <div class="plan-price">Free</div>
+            <p>Use Your Own Device</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>Use any smartphone, tablet, or laptop</li>
+              <li>Browser-based - no app installation</li>
+              <li>Perfect for testing before purchase</li>
+              <li>Unlimited devices per account</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block">Get Started</a>
+          </div>
         </div>
-        <div class="price-box-body">
-          <ul class="price-details">
-            <li>6-month subscription is included ($49.5 per month).</li>
-            <li>$50 camera hardware cost is discounted with this bundle.</li>
-            <li>After 6 months, the monthly subscription will auto-renew.</li>
-          </ul>
+
+        <!-- Visant Camera -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Visant Camera</h3>
+            <div class="plan-price">$100<span class="plan-period"> one-time</span></div>
+            <p>Professional Hardware</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>Pre-configured embedded Linux machine</li>
+              <li>High-quality image sensor</li>
+              <li>Plug-and-play Wi-Fi setup</li>
+              <li>Compact case with mount included</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="install.html" class="btn btn-outline btn-block">Install Instruction</a>
+            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block" style="margin-top: 0.5rem;">Order at Billing Page after
+              Login</a>
+          </div>
         </div>
-        <div class="price-box-footer">
-          <a class="price-action" href="https://app.visant.ai/checkout?plan=6month"" target="_blank" rel="noopener">Choose 6-Month Plan</a>
+
+        <!-- Alarm Tower -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Alarm Tower</h3>
+            <div class="plan-price">$120<span class="plan-period"> one-time</span></div>
+            <p>On-Site Alert System</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>LED stack light (Red/Yellow/Green)</li>
+              <li>Audible buzzer alarm</li>
+              <li>USB connection to Visant Camera</li>
+              <li>Industrial-grade durability</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block">Order at Billing Page after
+              Login</a>
+          </div>
         </div>
       </div>
-      <div class="price-box plan-one">
-        <div class="price-box-head">
-          <h3>1 Month Plan</h3>
-          <p class="price">$99.5 USD</p>
+
+      <!-- Software Section -->
+      <h3 class="pricing-section-title">AI License</h3>
+      <div class="pricing-grid">
+        <!-- Free Trial -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Free Trial</h3>
+            <div class="plan-price">Free<span class="plan-period"> for 7 days</span></div>
+            <p>Try Before You Buy</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>Full AI monitoring capabilities</li>
+              <li>Email notifications</li>
+              <li>7-day cloud storage</li>
+              <li>No credit card required</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block">Start Trial</a>
+          </div>
         </div>
-        <div class="price-box-body">
-          <ul class="price-details">
-            <li>1-month subscription is included ($49.5 per month).</li>
-            <li>$50 camera hardware cost is included up front.</li>
-            <li>After the first month, the monthly subscription will auto-renew.</li>
-          </ul>
+
+        <!-- AI License - Basic -->
+        <div class="plan-card highlight">
+          <div class="plan-header">
+            <h3>AI License - Basic</h3>
+            <div class="plan-price">$29.50<span class="plan-period"> / month</span></div>
+            <p>Per device monitoring</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>Unlimited AI event detections</li>
+              <li>Real-time email alerts</li>
+              <li>7-day cloud storage</li>
+              <li>Dual-agent AI verification</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://app.visant.ai/login" class="btn btn-primary btn-block">Subscribe at Billing Page </a>
+          </div>
         </div>
-        <div class="price-box-footer">
-          <a class="price-action" href="https://app.visant.ai/checkout?plan=1month"" target="_blank" rel="noopener">Choose 1-Month Plan</a>
-        </div>
-      </div>
-      <div class="price-box plan-enterprise">
-        <div class="price-box-head">
-          <h3>Enterprise Plan</h3>
-          <p class="price">Contact our team</p>
-        </div>
-        <div class="price-box-body">
-          <ul class="price-details">
-            <li>We know some deployments demand a customized approach.</li>
-            <li>Partner with us for bespoke hardware bundles and subscription terms.</li>
-          </ul>
-        </div>
-        <div class="price-box-footer">
-          <a class="price-action" href="mailto:visant@contoro.com">Talk With Sales</a>
+
+        <!-- AI License - Pro -->
+        <div class="plan-card disabled">
+          <div class="plan-header">
+            <h3>AI License - Pro</h3>
+            <div class="plan-price">Coming Soon</div>
+            <p>Advanced Features</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>Everything in Basic, plus:</li>
+              <li>Extended cloud storage (30+ days)</li>
+              <li>Priority AI processing</li>
+              <li>API access</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <span class="btn btn-outline btn-block">Coming Soon</span>
+          </div>
         </div>
       </div>
     </div>
-    
   </section>
 
-  <section class="faq" id="faq">
-    <h2>Questions? We’ve Got Answers.</h2>
-    <div class="faq-item">
-      <h4>Do I need any AI knowledge?</h4>
-      <p>No! Visant.AI is made for everyone — no coding or AI setup required.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Does it work with my existing cameras?</h4>
-      <p>Yes, most common IP cameras are supported out of the box.</p>
-    </div>
-    <div class="faq-item">
-      <h4>What happens after my plan ends?</h4>
-      <p>Your subscription auto-renews, and you can cancel anytime.</p>
+  <!-- FAQ -->
+  <section id="faq" style="background: var(--bg-white);">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Do I need technical skills?</h4>
+        <p>No. If you can type a description like "Alert if the door is left open", you can use Visant. The AI handles
+          the rest.</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Can I use my own camera?</h4>
+        <p>Yes! You can use our Web Camera feature on any device with a browser (laptop, phone, tablet) to test the
+          system without buying hardware.</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">How accurate is the AI?</h4>
+        <p>We use a dual-agent consensus system (OpenAI GPT + Google Gemini) to verify every detection, resulting in
+          less than 1%
+          false alarms.</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Does the hardware include AI monitoring?</h4>
+        <p>No. Hardware and AI licenses are sold separately. After adding your camera, purchase an AI license on the
+          Billing page to enable monitoring.</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Can I move a license between cameras?</h4>
+        <p>Yes! You can remove a license from one camera and assign it to another anytime on the Billing page. Licenses
+          are flexible and not locked to a specific device.</p>
+      </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Contoro Robotics. All rights reserved.</p>
-    <p>
-      <a href="terms.html">Terms of Service</a> |
-      <a href="privacy.html">Privacy Policy</a> |
-      <a href="mailto:visant@contoro.com">Contact</a>
-    </p>
+    <div class="container">
+      <div class="footer-links">
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:visant@contoro.com">Contact Support</a>
+      </div>
+      <p style="font-size: 0.9rem;">&copy; 2026 Contoro Robotics. All rights reserved.</p>
+    </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
+    // Mobile Navigation Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteHeader = document.querySelector('.site-header');
+
+    if (navToggle && siteHeader) {
+      navToggle.addEventListener('click', () => {
+        siteHeader.classList.toggle('nav-open');
+      });
+    }
+
+    // Typewriter Effect (Preserved)
     const texts = [
       "Detect a person without PPE",
       "Detect a damaged box",
-      "Detect oil leaked"
+      "Detect oil leaked",
+      "Detect blocked emergency exit"
     ];
 
     let currentTextIndex = 0;
@@ -934,11 +1006,11 @@
 
     function typeWriter() {
       const currentText = texts[currentTextIndex];
-      
+
       if (isDeleting) {
         typewriterElement.textContent = currentText.substring(0, currentCharIndex - 1);
         currentCharIndex--;
-        
+
         if (currentCharIndex === 0) {
           isDeleting = false;
           currentTextIndex = (currentTextIndex + 1) % texts.length;
@@ -950,7 +1022,7 @@
       } else {
         typewriterElement.textContent = currentText.substring(0, currentCharIndex + 1);
         currentCharIndex++;
-        
+
         if (currentCharIndex === currentText.length) {
           setTimeout(() => {
             isDeleting = true;
@@ -962,29 +1034,11 @@
       }
     }
 
-    function setupNavToggle() {
-      const navToggle = document.querySelector('.nav-toggle');
-      const siteHeader = document.querySelector('.site-header');
-      if (!navToggle || !siteHeader) return;
-
-      navToggle.addEventListener('click', () => {
-        const isOpen = siteHeader.classList.toggle('nav-open');
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 900 && siteHeader.classList.contains('nav-open')) {
-          siteHeader.classList.remove('nav-open');
-          navToggle.setAttribute('aria-expanded', 'false');
-        }
-      });
+    if (typewriterElement) {
+      // Start slightly delayed to ensure load
+      setTimeout(typeWriter, 1000);
     }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      typeWriter();
-      setupNavToggle();
-    });
   </script>
-
 </body>
+
 </html>

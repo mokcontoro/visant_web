@@ -1,185 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Visant.AI | Install Guide</title>
   <link rel="icon" type="image/png" sizes="64x64" href="image/logo_64x64_wh.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/common.css" />
   <style>
-    :root {
-      --primary: #CC785C;
-      --primary-hover: #B86A4F;
-      --text-dark: #1A1A1A;
-      --text-body: #2D2D2D;
-      --text-muted: #6B6B6B;
-      --bg-cream: #F5F3EE;
-      --bg-warm: #EDE8E0;
-      --bg-white: #FFFFFF;
-      --border-subtle: #E5E0D8;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
+    /* --- Page-specific styles for install.html --- */
 
     body {
-      margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: linear-gradient(135deg, #f7f2ea 0%, #f0ebe4 35%, #ffffff 100%);
-      color: var(--text-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .nav-wrapper {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: var(--bg-cream);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 0 1rem;
-    }
-
-    .site-header {
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 1rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-
-    .brand img {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-    }
-
-    .brand-name {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--text-dark);
-      letter-spacing: -0.01em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      flex: 1 1 auto;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: var(--text-body);
-      font-weight: 500;
-      font-size: 0.9375rem;
-      transition: color 0.15s ease;
-      padding: 0.5rem 0;
-    }
-
-    .nav-link:hover {
-      color: var(--primary);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .nav-toggle {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      border: 1px solid var(--border-subtle);
-      background: var(--bg-white);
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .nav-toggle:hover {
-      border-color: var(--primary);
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 16px;
-      height: 2px;
-      background: var(--text-body);
-      border-radius: 1px;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .site-header.nav-open .nav-toggle span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .site-header.nav-open .nav-toggle span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .site-header.nav-open .nav-toggle span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    .login-btn {
-      padding: 0.625rem 1.25rem;
-      border-radius: 8px;
-      background: var(--primary);
-      border: none;
-      color: white;
-      font-weight: 500;
-      font-size: 0.9375rem;
-      text-decoration: none;
-      transition: all 0.15s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .login-btn:hover {
-      background: var(--primary-hover);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .signup-btn {
-      padding: 0.625rem 1.25rem;
-      border-radius: 8px;
-      background: var(--bg-white);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-body);
-      font-weight: 500;
-      font-size: 0.9375rem;
-      text-decoration: none;
-      transition: all 0.15s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .signup-btn:hover {
-      background: var(--bg-cream);
-      border-color: var(--primary);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
     }
 
     .hero {
@@ -193,7 +26,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,243,238,0.9));
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 243, 238, 0.9));
       border: 1px solid var(--border-subtle);
       box-shadow: var(--shadow-lg);
     }
@@ -318,7 +151,7 @@
     }
 
     .metric {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 0.9rem 1rem;
@@ -389,7 +222,7 @@
       color: var(--primary);
       font-weight: 600;
       font-size: 0.9rem;
-      border: 1px solid rgba(204,120,92,0.22);
+      border: 1px solid rgba(204, 120, 92, 0.22);
     }
 
     .steps {
@@ -415,7 +248,7 @@
       height: 34px;
       border-radius: 10px;
       background: rgba(204, 120, 92, 0.12);
-      border: 1px solid rgba(204,120,92,0.22);
+      border: 1px solid rgba(204, 120, 92, 0.22);
       color: var(--primary);
       display: inline-flex;
       align-items: center;
@@ -523,77 +356,66 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 900px) {
-      .nav-toggle {
-        display: flex;
-      }
-      .site-header {
-        flex-direction: column;
-        align-items: stretch;
-        border-radius: 36px;
-        gap: 1rem;
-      }
+    @media (max-width: 768px) {
       .nav-links {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        padding: 0;
-        border-top: 1px solid var(--border-subtle);
-        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+        display: none;
       }
+
+      .nav-toggle {
+        display: block;
+      }
+
       .site-header.nav-open .nav-links {
-        max-height: 400px;
-        opacity: 1;
-        padding-top: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-subtle);
       }
-      .header-actions {
-        width: 100%;
-        justify-content: space-between;
-      }
-      .header-actions .login-btn,
-      .header-actions .signup-btn {
-        flex: 1;
-        text-align: center;
-      }
+
       .hero-content {
         padding: 0;
       }
+
       .hero h1 {
         font-size: 1.9rem;
       }
+
       section h2 {
         font-size: 1.4rem;
       }
     }
   </style>
 </head>
+
 <body>
 
   <div class="nav-wrapper">
-    <div class="site-header">
-      <a class="brand" href="index.html">
-        <img src="image/logo_transparent.png" alt="Visant.AI logo" />
-        <span class="brand-name">Visant.AI</span>
-      </a>
-      <nav class="nav-links">
-        <a class="nav-link" href="install.html">Install</a>
-        <a class="nav-link" href="index.html#use-cases">Use Cases</a>
-        <a class="nav-link" href="index.html#technical-specs">Tech Specs</a>
-        <a class="nav-link" href="index.html#pricing">Pricing</a>
-        <a class="nav-link" href="index.html#faq">FAQ</a>
-      </nav>
-      <div class="header-actions">
-        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <a class="signup-btn" href="https://app.visant.ai/signup">Sign Up</a>
-        <a class="login-btn" href="https://app.visant.ai/login">Log in</a>
+    <div class="container">
+      <div class="site-header">
+        <a class="brand" href="index.html">
+          <img src="image/logo_transparent.png" alt="Visant.AI">
+          <span class="brand-name">Visant.AI</span>
+        </a>
+        <nav class="nav-links">
+          <a class="nav-link" href="index.html#how-it-works">How It Works</a>
+          <a class="nav-link" href="index.html#compatibility">Cameras</a>
+          <a class="nav-link" href="#">Install</a>
+          <a class="nav-link" href="index.html#features">Applications</a>
+          <a class="nav-link" href="index.html#pricing">Pricing</a>
+          <a class="nav-link" href="index.html#faq">FAQ</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <a class="btn btn-outline" href="https://app.visant.ai/login">Log in</a>
+          <a class="btn btn-primary" href="https://app.visant.ai/signup">Get Started</a>
+        </div>
       </div>
     </div>
   </div>
@@ -603,7 +425,8 @@
       <div class="hero-inner">
         <div class="eyebrow"><span class="dot"></span> Guided Install</div>
         <h1>Install Visant.AI in Minutes</h1>
-        <p>Follow these steps to connect your camera to Wi-Fi and finish AI setup so you can start detecting what matters.</p>
+        <p>Follow these steps to connect your camera to Wi-Fi and finish AI setup so you can start detecting what
+          matters.</p>
         <div class="hero-buttons">
           <a class="cta-btn" href="mailto:visant@contoro.com">Chat with our team</a>
           <a class="cta-btn try-now-btn" href="index.html">Back to homepage</a>
@@ -617,6 +440,21 @@
     </div>
   </section>
 
+  <section class="section-card">
+    <div class="section-header">
+      <h2>Before You Start</h2>
+      <span class="badge">Preparation</span>
+    </div>
+    <div class="note-box">
+      <p>Keep your Device ID (attached on the side of the camera and sent to your order email) nearby. Ensure WiFi
+        coverage is solid where the camera is mounted. If you prefer, you can use Ethernet cable to connect the Visant
+        Camera with your router.
+      </p>
+    </div>
+  </section>
+
+
+
   <section class="section-card" id="wifi-setup">
     <div class="section-header">
       <h2>WiFi Setup</h2>
@@ -627,11 +465,14 @@
         <div class="steps">
           <div class="step">
             <span class="step-badge">1</span>
-            <div>Connect the power to the camera using the provided power adapter. Do not use an arbitrary USB-C power supply.</div>
+            <div>Connect the power to the camera using the provided power adapter. Do not use an arbitrary USB-C power
+              supply.</div>
           </div>
           <div class="step">
             <span class="step-badge">2</span>
-            <div>After 30 seconds, use your phone and connect to the WiFi network named <strong>Visant-wifi-setup-xxxxx</strong> (xxxxx is the device ID).</div>
+            <div>After 30 seconds, use your phone and connect to the WiFi network named
+              <strong>Visant-wifi-setup-xxxxx</strong> (xxxxx is the device ID).
+            </div>
           </div>
           <div class="step">
             <span class="step-badge">3</span>
@@ -664,15 +505,18 @@
           </div>
           <div class="step">
             <span class="step-badge">2</span>
-            <div>In the <strong>My Camera</strong> menu, click <strong>Add Camera</strong>.</div>
+            <div>In the <strong>My Camera</strong> menu, click <strong>Add Camera</strong>. Only Owner, Admin, and
+              Operator can add a camera. If you are a Viewer, then ask your Team Admin to change your role to add the
+              camera.</div>
           </div>
           <div class="step">
             <span class="step-badge">3</span>
-            <div>Input the Device ID written on the side of the camera (also sent to your order email) and the Activation Code sent to your order email.</div>
+            <div>Input the Device ID written on the side of the camera, which is also sent to your order email.</div>
           </div>
           <div class="step">
             <span class="step-badge">4</span>
-            <div>Select the camera in <strong>My Camera</strong>, then click <strong>Settings</strong> to expand its menu.</div>
+            <div>Select the camera in <strong>My Camera</strong>, then click <strong>Settings</strong> to expand its
+              menu.</div>
           </div>
           <div class="step">
             <span class="step-badge">5</span>
@@ -683,8 +527,31 @@
       <div class="note-box" style="text-align: center;">
         <h3>Find your Device ID</h3>
         <p>Device ID is printed on the side of the camera and included in your order email.</p>
-        <img src="image/camera_pic.png" alt="Device ID example" class="illustration"/>
+        <img src="image/camera_pic.png" alt="Device ID example" class="illustration" />
       </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <div class="section-header">
+      <h2>Professional Camera Hardware</h2>
+      <span class="badge">Visant Camera</span>
+    </div>
+    <div class="note-box">
+      <ul class="steps" style="gap: 0.75rem;">
+        <li class="step">
+          <div><strong>4K Ultra HD resolution</strong> with 8MP Sony sensor</div>
+        </li>
+        <li class="step">
+          <div><strong>73° field of view</strong> optimized for coverage</div>
+        </li>
+        <li class="step">
+          <div><strong>PDAF autofocus</strong> for sharp, clear detection</div>
+        </li>
+        <li class="step">
+          <div><strong>Privacy-first</strong> with built-in cover</div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -693,21 +560,15 @@
       <h2>Need a hand?</h2>
       <span class="badge">Support</span>
     </div>
-    <div class="grid-split">
-      <div class="note-box">
-        <h3>Talk to us</h3>
-        <p>Email: <a href="mailto:visant@contoro.com">visant@contoro.com</a></p>
-        <p>We can walk you through WiFi onboarding or camera activation.</p>
-      </div>
-      <div class="note-box">
-        <h3>Before you start</h3>
-        <p>Keep your Device ID and Activation Code nearby. Ensure WiFi coverage is solid where the camera is mounted.</p>
-      </div>
+    <div class="note-box">
+      <h3>Talk to us</h3>
+      <p>Email: <a href="mailto:visant@contoro.com">visant@contoro.com</a></p>
+      <p>We can walk you through WiFi onboarding or AI activation.</p>
     </div>
   </section>
 
   <footer>
-    <p>Ac 2025 Contoro Robotics. All rights reserved.</p>
+    <p>&copy; 2026 Contoro Robotics. All rights reserved.</p>
     <p>
       <a href="terms.html">Terms of Service</a> |
       <a href="privacy.html">Privacy Policy</a> |
@@ -716,28 +577,17 @@
   </footer>
 
   <script>
-    function setupNavToggle() {
-      const navToggle = document.querySelector('.nav-toggle');
-      const siteHeader = document.querySelector('.site-header');
-      if (!navToggle || !siteHeader) return;
+    // Mobile Navigation Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteHeader = document.querySelector('.site-header');
 
+    if (navToggle && siteHeader) {
       navToggle.addEventListener('click', () => {
-        const isOpen = siteHeader.classList.toggle('nav-open');
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 900 && siteHeader.classList.contains('nav-open')) {
-          siteHeader.classList.remove('nav-open');
-          navToggle.setAttribute('aria-expanded', 'false');
-        }
+        siteHeader.classList.toggle('nav-open');
       });
     }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      setupNavToggle();
-    });
   </script>
 
 </body>
+
 </html>
