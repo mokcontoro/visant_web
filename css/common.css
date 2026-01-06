@@ -338,3 +338,51 @@ section {
 .text-muted {
   color: var(--text-muted);
 }
+
+/* ============================================
+   Promo Banner
+   ============================================ */
+.promo-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: white;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+
+.promo-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  display: inline-block;
+}
+
+.promo-code {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  letter-spacing: 0.1em;
+}
+
+/* Plan badge for pricing cards */
+.plan-badge {
+  position: absolute;
+  top: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.plan-card {
+  position: relative;
+}
