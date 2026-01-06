@@ -7,7 +7,8 @@
       "WebFetch(domain:claude.ai)",
       "WebSearch",
       "Bash(git pull:*)",
-      "Bash(git stash:*)"
+      "Bash(git stash:*)",
+      "Bash(git remote set-url:*)"
     ],
     "deny": [],
     "ask": []
