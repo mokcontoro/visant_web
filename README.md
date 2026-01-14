@@ -4,7 +4,7 @@ Marketing website for Visant.AI - Camera that Detects What Matters 24/7
 
 ## Version
 
-v1.0.3
+v1.0.4
 
 ## Local Development
 
