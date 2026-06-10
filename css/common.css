@@ -367,10 +367,10 @@ section {
   letter-spacing: 0.1em;
 }
 
-/* Plan badge for pricing cards */
+/* Plan badge for pricing cards (sits inside the card top; cards use overflow:hidden) */
 .plan-badge {
   position: absolute;
-  top: -0.75rem;
+  top: 0.75rem;
   left: 50%;
   transform: translateX(-50%);
   background: var(--primary);
@@ -381,6 +381,10 @@ section {
   font-weight: 700;
   letter-spacing: 0.05em;
   white-space: nowrap;
+  max-width: calc(100% - 2rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 1;
 }
 
 .plan-card {
