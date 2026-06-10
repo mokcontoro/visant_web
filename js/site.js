@@ -72,7 +72,7 @@
         name: (form.querySelector('[name="name"]') || {}).value || '',
         company: (form.querySelector('[name="company"]') || {}).value || '',
         message: (form.querySelector('[name="message"]') || {}).value || '',
-        page: window.location.pathname
+        source: 'website:' + window.location.pathname
       };
 
       function showSuccess() {
@@ -82,7 +82,8 @@
         if (success) success.hidden = false;
       }
 
-      fetch('/api/lead', {
+      // visant.ai is GitHub Pages (static) — post straight to the app API (CORS-allowed)
+      fetch('https://app.visant.ai/v1/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
