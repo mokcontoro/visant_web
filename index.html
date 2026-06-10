@@ -1005,6 +1005,33 @@
     </div>
   </section>
 
+  <!-- Lead Capture -->
+  <section id="lead" class="lead-section">
+    <div class="container">
+      <div class="lead-card">
+        <h2>Not ready to sign up?</h2>
+        <p>Get the 5-minute guide to AI monitoring for your facility &mdash; what it can watch, what it costs, and how
+          to set it up.</p>
+        <form id="lead-form" class="lead-form" novalidate>
+          <div class="form-row">
+            <input type="email" name="email" required autocomplete="email" placeholder="Work email *">
+          </div>
+          <div class="form-row">
+            <input type="text" name="name" autocomplete="name" placeholder="Name (optional)">
+            <input type="text" name="company" autocomplete="organization" placeholder="Company (optional)">
+          </div>
+          <textarea name="message" placeholder="What would you like to monitor? (optional)"></textarea>
+          <button type="submit" class="btn btn-primary btn-block">Send Me the Guide</button>
+          <p class="form-note">No spam &mdash; just the guide and occasional product updates.</p>
+        </form>
+        <div id="lead-success" class="lead-success" hidden>
+          <div class="check">&#10003;</div>
+          <p>Thanks! We'll send the guide to your inbox shortly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -1018,17 +1045,8 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/site.js" defer></script>
   <script>
-    // Mobile Navigation Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const siteHeader = document.querySelector('.site-header');
-
-    if (navToggle && siteHeader) {
-      navToggle.addEventListener('click', () => {
-        siteHeader.classList.toggle('nav-open');
-      });
-    }
-
     // Typewriter Effect (Preserved)
     const texts = [
       "Detect a person without PPE",
