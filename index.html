@@ -613,23 +613,23 @@
             <span></span><span></span><span></span>
           </button>
           <a class="btn btn-outline" href="https://app.visant.ai/login">Log in</a>
-          <a class="btn btn-primary" href="https://app.visant.ai/signup">Get Started</a>
+          <a class="btn btn-primary" href="https://app.visant.ai/signup" data-loc="nav">Get Started</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Beta Promotion Banner -->
+  <!-- Founding Customer Promotion Banner -->
   <div class="promo-banner">
     <div class="container" style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
       <div style="text-align: center;">
-        <span class="promo-badge">BETA LAUNCH</span>
-        <h3 style="margin: 0.5rem 0; font-size: 1.25rem; color: white;">Get Free AI Licenses for 3 Months</h3>
+        <span class="promo-badge">FOUNDING CUSTOMER OFFER</span>
+        <h3 style="margin: 0.5rem 0; font-size: 1.25rem; color: white;">$29/mo for your first year &mdash; first 20 customers</h3>
         <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 0.95rem;">
-          Use code: <strong class="promo-code">BETA2026</strong> at Billing page after signup
+          Use code <strong class="promo-code">FOUNDING29</strong> at the Billing page after signup
         </p>
       </div>
-      <a href="https://app.visant.ai/signup" class="btn" style="background: white; color: var(--primary); font-weight: 600;">Claim Now</a>
+      <a href="https://app.visant.ai/signup" data-loc="promo_banner" class="btn" style="background: white; color: var(--primary); font-weight: 600;">Claim Now</a>
     </div>
   </div>
 
@@ -646,10 +646,10 @@
       </div>
 
       <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center;">
-        <a class="btn btn-primary" href="#pricing" style="padding: 1rem 2rem; font-size: 1.1rem;">Start for Free with
+        <a class="btn btn-primary" href="https://app.visant.ai/signup" data-loc="hero"
+          style="padding: 1rem 2rem; font-size: 1.1rem;">Start for Free with
           Your Camera</a>
-        <a class="btn btn-outline" href="https://test.visant.ai" target="_blank"
-          style="padding: 1rem 2rem; font-size: 1.1rem;">Start with Visant Camera</a>
+        <a class="btn btn-outline" href="#pricing" style="padding: 1rem 2rem; font-size: 1.1rem;">See Pricing</a>
       </div>
     </div>
   </section>
@@ -817,51 +817,59 @@
     <div class="container">
       <div class="section-header">
         <h2>Simple, Transparent Pricing</h2>
-        <p>Choose your hardware and software plan separately.</p>
+        <p>Start free with any browser device. Add an AI License per camera when you're ready.</p>
+      </div>
+
+      <!-- Founding customer offer -->
+      <div class="founding-banner">
+        <span class="plan-badge" style="position: static; transform: none;">FOUNDING CUSTOMER OFFER</span>
+        <p><strong>$29/mo for your first year</strong> &mdash; first 20 customers. Use code
+          <strong class="founding-code">FOUNDING29</strong> at the Billing page after signup.</p>
       </div>
 
       <!-- Software Section -->
       <h3 class="pricing-section-title">AI License</h3>
       <div class="pricing-grid">
-        <!-- Beta Special -->
-        <div class="plan-card highlight">
-          <span class="plan-badge">BETA SPECIAL</span>
+        <!-- Free Tier -->
+        <div class="plan-card">
           <div class="plan-header">
-            <h3>Beta Launch Offer</h3>
-            <div class="plan-price">Free License<br><span class="plan-period">for 3 months</span></div>
-            <p>Use code: BETA2026</p>
+            <h3>Free</h3>
+            <div class="plan-price">$0</div>
+            <p>Try it with your own device</p>
           </div>
           <div class="plan-body">
             <ul class="plan-features">
-              <li>Monitor 3 cameras simultaneously</li>
-              <li>Full AI monitoring capabilities</li>
-              <li>Email notifications</li>
-              <li>7-day cloud storage</li>
+              <li>Use any phone, tablet, or laptop as a web camera</li>
+              <li>Limited daily AI checks</li>
+              <li>Plain-English alert conditions</li>
+              <li>Email alerts</li>
               <li>No credit card required</li>
             </ul>
           </div>
           <div class="plan-footer">
-            <a href="https://app.visant.ai/signup" class="btn btn-primary btn-block">Get Started Free</a>
+            <a href="https://app.visant.ai/signup" data-loc="pricing_free" class="btn btn-primary btn-block">Start Free</a>
           </div>
         </div>
 
-        <!-- AI License - Basic -->
-        <div class="plan-card">
+        <!-- AI License -->
+        <div class="plan-card highlight">
+          <span class="plan-badge">FOUNDING29 &mdash; $29/MO FIRST YEAR</span>
           <div class="plan-header">
-            <h3>AI License - Basic</h3>
-            <div class="plan-price">$29.50<span class="plan-period"> / month</span></div>
-            <p>Per device monitoring</p>
+            <h3>AI License</h3>
+            <div class="plan-price">$49<span class="plan-period"> / month per camera</span></div>
+            <p>or $470/year (2 months free)</p>
           </div>
           <div class="plan-body">
             <ul class="plan-features">
-              <li>Unlimited AI event detections</li>
+              <li>Scheduled AI checks, day and night</li>
+              <li>Dual-AI consensus on every alert</li>
               <li>Real-time email alerts</li>
               <li>7-day cloud storage</li>
-              <li>Dual-agent AI verification</li>
+              <li>Move the license between cameras anytime</li>
             </ul>
           </div>
           <div class="plan-footer">
-            <a href="https://app.visant.ai/login" class="btn btn-primary btn-block">Subscribe at Billing Page </a>
+            <a href="https://app.visant.ai/signup" data-loc="pricing_ai_license" class="btn btn-primary btn-block">Get Started</a>
           </div>
         </div>
 
@@ -905,7 +913,7 @@
             </ul>
           </div>
           <div class="plan-footer">
-            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block">Get Started</a>
+            <a href="https://app.visant.ai/signup" data-loc="pricing_web_camera" class="btn btn-outline btn-block">Get Started</a>
           </div>
         </div>
 
@@ -913,7 +921,7 @@
         <div class="plan-card">
           <div class="plan-header">
             <h3>Visant Camera</h3>
-            <div class="plan-price">Contact Us</div>
+            <div class="plan-price">$199<span class="plan-period"> one-time</span></div>
             <p>Professional Hardware</p>
           </div>
           <div class="plan-body">
@@ -925,7 +933,7 @@
             </ul>
           </div>
           <div class="plan-footer">
-            <a href="mailto:visant@contoro.com" class="btn btn-outline btn-block">Contact visant@contoro.com</a>
+            <a href="https://app.visant.ai/signup" data-loc="pricing_visant_camera" class="btn btn-outline btn-block">Order at Billing Page after Signup</a>
             <a href="install.html" class="btn btn-outline btn-block" style="margin-top: 0.5rem;">Install Instruction</a>
           </div>
         </div>
@@ -948,7 +956,7 @@
           <div class="plan-footer">
             <a href="https://www.amazon.com/dp/B0D3WPX5N7" target="_blank" rel="noopener"
               class="btn btn-outline btn-block">See the Product Detail at Amazon</a>
-            <a href="https://app.visant.ai/signup" class="btn btn-outline btn-block" style="margin-top: 0.5rem;">Order
+            <a href="https://app.visant.ai/signup" data-loc="pricing_alarm_tower" class="btn btn-outline btn-block" style="margin-top: 0.5rem;">Order
               at Billing Page after
               Login</a>
           </div>

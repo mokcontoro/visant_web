@@ -386,3 +386,29 @@ section {
 .plan-card {
   position: relative;
 }
+
+/* Founding customer offer banner (pricing section) */
+.founding-banner {
+  background: var(--primary-light);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  margin: 0 auto 2.5rem;
+  max-width: 720px;
+}
+
+.founding-banner p {
+  margin: 0.5rem 0 0;
+  color: var(--text-body);
+}
+
+.founding-code {
+  background: var(--bg-white);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  letter-spacing: 0.08em;
+}
